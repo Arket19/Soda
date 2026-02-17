@@ -769,7 +769,7 @@ class GeneradorReporteHTML:
             elif hallazgo.nombre_modulo == "visualizer":
                 datos_visualizer = hallazgo.datos
 
-        #Se toma como base las rutas encontradas por el crawler
+        #Se toman como base las rutas encontradas por el crawler
         datos_base = datos_crawler if datos_crawler else datos_discoverer
 
         if datos_base:

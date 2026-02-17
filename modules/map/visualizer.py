@@ -184,7 +184,7 @@ class Visualizer:
             Diccionario con los resultados del visualizer, o None si falla.
         """
 
-        logger.info(f"[{self.NOMBRE_MODULO}] Iniciando visualización de {url}")
+        logger.info(f"VISUALIZER | Iniciando visualización de {url}")
 
         #Se buscan las URLs descubiertas combinando crawler y discoverer
         urls_combinadas = set()
@@ -252,7 +252,7 @@ class Visualizer:
             Respuesta del LLM (XML del diagrama).
         """
 
-        logger.info(f"Llamando a {self.modelo} para generar diagrama...")
+        logger.info(f"VISUALIZER | Llamando a {self.modelo} para generar diagrama...")
 
         #Se realiza la llamada al LLM
         try:
@@ -269,13 +269,13 @@ class Visualizer:
             )
 
             contenido = respuesta.choices[0].message.content
-            logger.debug(f"Respuesta del LLM recibida")
+            logger.debug(f"VISUALIZER | Respuesta del LLM recibida")
 
             return contenido
 
         except Exception as error:
             logger.error(f"Error en llamada al LLM: {error}")
-            raise RuntimeError(f"Error generando diagrama: {error}")
+            raise RuntimeError(f"VISUALIZER | Error generando diagrama: {error}")
 
 
 
@@ -441,7 +441,7 @@ class Visualizer:
             logger.warning("No se proporcionaron API Key y/o modelo. Generando archivo de rutas para uso manual con LLM.")
             return self._generar_archivo_manual(urls, output_file, base_url)
 
-        logger.info(f"Generando diagrama...")
+        logger.info(f"VISUALIZER |Generando diagrama...")
 
         #Se extraen paths únicos de las URLs
         rutas = set()
@@ -457,10 +457,10 @@ class Visualizer:
 
         rutas = sorted(rutas)
         self.contador_rutas = len(rutas)
-        logger.info(f"Rutas únicas encontradas: {self.contador_rutas}")
+        logger.info(f"VISUALIZER | Rutas únicas encontradas: {self.contador_rutas}")
 
         if not rutas:
-            logger.warning("No se encontraron rutas para visualizar")
+            logger.warning("VISUALIZER | No se encontraron rutas para visualizar")
             return ""
 
         #Se construye el prompt
@@ -483,7 +483,7 @@ class Visualizer:
 
         #Se valida que la respuesta contenga la estructura básica
         if '<mxfile' not in contenido_xml:
-            logger.error("La respuesta del LLM no contiene un diagrama válido")
+            logger.error("VISUALIZER | La respuesta del LLM no contiene un diagrama válido")
             return ""
 
         #Se guarda el archivo
@@ -493,5 +493,5 @@ class Visualizer:
         with open(ruta_salida, 'w', encoding='utf-8') as archivo:
             archivo.write(contenido_xml)
 
-        logger.success(f"Diagrama generado: {ruta_salida.resolve()}")
+        logger.success(f"VISUALIZER | Diagrama generado: {ruta_salida.resolve()}")
         return str(ruta_salida.resolve())

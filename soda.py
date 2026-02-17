@@ -275,7 +275,7 @@ def parsear_argumentos() -> argparse.Namespace:
     grupo_opciones_visualizer.add_argument(
         "-M", "--model",
         type=str,
-        help="Modelo LLM a utilizar para el visualizer",
+        help="Modelo LLM a utilizar para el visualizer (Ejemplo: openrouter/openai/gpt-5.1-chat)",
     )
 
 
@@ -606,9 +606,10 @@ async def ejecutar_modulos_mapeo(
             incluir_sitemaps=incluir_sitemaps,
         )
 
-    if resultado_mapeo:
-        logger.info(f"{MODULO_MAPEO_DEFECTO.upper(): <10} | Modulo {MODULO_MAPEO_DEFECTO} completado")
-
+    if MODULO_MAPEO_DEFECTO == "discoverer":
+        logger.info(f"DISCOVERER | Modulo discoverer completado")
+    else:
+        logger.info(f"CRAWLER    | Modulo crawler completado")
 
 
     #Se ejecuta el visualizer
