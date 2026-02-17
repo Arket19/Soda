@@ -1412,9 +1412,32 @@ class Discoverer:
             todas_las_urls.extend(lista_nivel)
 
         #Se añaden los archivos encontrados al final de la lista
-        for archivo in sorted(archivos_encontrados):
-            if archivo not in todas_las_urls:
-                todas_las_urls.append(archivo)
+        #Se agrupan por directorio padre y se aplica max_urls_directorio
+        archivos_por_padre: Dict[str, List[str]] = {}
+        for archivo in archivos_encontrados:
+            parseada_archivo = urlparse(archivo)
+            path_archivo = parseada_archivo.path or "/"
+            directorio_padre = path_archivo[:path_archivo.rfind('/') + 1]
+            padre_completo = f"{parseada_archivo.scheme}://{parseada_archivo.netloc}{directorio_padre}"
+
+            if padre_completo not in archivos_por_padre:
+                archivos_por_padre[padre_completo] = []
+            archivos_por_padre[padre_completo].append(archivo)
+
+        for padre, archivos_hijos in archivos_por_padre.items():
+            if len(archivos_hijos) > max_urls_directorio:
+                url_truncada = padre.rstrip('/') + '/*'
+                if url_truncada not in urls_truncadas:
+                    urls_truncadas.append(url_truncada)
+                logger.warning(
+                    f"DISCOVERER | Archivos truncados: {padre} "
+                    f"tiene {len(archivos_hijos)} archivos (>{max_urls_directorio}). "
+                    f"Registrado como {url_truncada}"
+                )
+            else:
+                for archivo in sorted(archivos_hijos):
+                    if archivo not in todas_las_urls:
+                        todas_las_urls.append(archivo)
 
         #Se añaden los directorios truncados al final de la lista
         for url_truncada in urls_truncadas:

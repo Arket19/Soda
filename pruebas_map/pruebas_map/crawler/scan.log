@@ -1,0 +1,434 @@
+17-02-2026 13:35:49 | INFO     | core.report_gen:__init__:156 | SODA       | GeneradorReportes inicializado para: http://localhost:8888/
+17-02-2026 13:35:49 | INFO     | __main__:ejecutar_mapeo_individual:668 | SODA       | Ejecutando modulos de mapeo individuales: crawler
+17-02-2026 13:35:49 | INFO     | modules.map.crawler:run:149 | CRAWLER    | Iniciando crawleo de http://localhost:8888/
+17-02-2026 13:35:49 | INFO     | modules.map.crawler:run:150 | CRAWLER    | Profundidad máxima: 4, Límite URLs: 25000
+17-02-2026 13:35:49 | INFO     | modules.map.crawler:_descubrir_urls:920 | CRAWLER    | Iniciando crawleo desde: http://localhost:8888/
+17-02-2026 13:35:49 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/robots.txt
+17-02-2026 13:35:49 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:35:49 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/robots.txt
+17-02-2026 13:35:49 | DEBUG    | modules.map.crawler:_obtener_sitemap:669 | CRAWLER    | Obteniendo sitemap: http://localhost:8888/sitemap.xml
+17-02-2026 13:35:50 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/sitemap.xml
+17-02-2026 13:35:50 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:35:50 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/sitemap.xml
+17-02-2026 13:35:52 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/
+17-02-2026 13:35:52 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:35:52 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/
+17-02-2026 13:35:52 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [1] depth=0, pending=6, est=7s
+17-02-2026 13:35:53 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/about/
+17-02-2026 13:35:53 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:35:53 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/about/
+17-02-2026 13:35:53 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [2] depth=1, pending=8, est=9s
+17-02-2026 13:35:54 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/
+17-02-2026 13:35:54 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:35:54 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/
+17-02-2026 13:35:54 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [3] depth=1, pending=14, est=16s
+17-02-2026 13:35:55 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/
+17-02-2026 13:35:55 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:35:55 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/
+17-02-2026 13:35:55 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [4] depth=1, pending=49, est=56s
+17-02-2026 13:35:56 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/
+17-02-2026 13:35:56 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:35:56 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/
+17-02-2026 13:35:56 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [5] depth=1, pending=53, est=1.0m
+17-02-2026 13:35:58 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/portal/login.html?redirect=/portal/dashboard
+17-02-2026 13:35:58 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:35:58 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/portal/login.html?redirect=/portal/dashboard
+17-02-2026 13:35:58 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [6] depth=1, pending=53, est=1.0m
+17-02-2026 13:35:59 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/login.html
+17-02-2026 13:35:59 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:35:59 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/login.html
+17-02-2026 13:35:59 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [7] depth=1, pending=53, est=1.0m
+17-02-2026 13:36:00 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/about/team.html
+17-02-2026 13:36:00 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36
+17-02-2026 13:36:00 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/about/team.html
+17-02-2026 13:36:00 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [8] depth=2, pending=52, est=60s
+17-02-2026 13:36:02 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/about/careers.html
+17-02-2026 13:36:02 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:36:02 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/about/careers.html
+17-02-2026 13:36:02 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [9] depth=2, pending=51, est=59s
+17-02-2026 13:36:03 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/about/contact.html
+17-02-2026 13:36:03 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:36:03 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/about/contact.html
+17-02-2026 13:36:03 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [10] depth=2, pending=50, est=57s
+17-02-2026 13:36:05 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/post-1.html
+17-02-2026 13:36:05 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:36:05 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/post-1.html
+17-02-2026 13:36:05 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [11] depth=2, pending=49, est=56s
+17-02-2026 13:36:06 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/post-2.html
+17-02-2026 13:36:06 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36
+17-02-2026 13:36:06 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/post-2.html
+17-02-2026 13:36:06 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [12] depth=2, pending=48, est=55s
+17-02-2026 13:36:08 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/post-3.html
+17-02-2026 13:36:08 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:36:08 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/post-3.html
+17-02-2026 13:36:08 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [13] depth=2, pending=47, est=54s
+17-02-2026 13:36:09 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/post-4.html
+17-02-2026 13:36:09 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:36:09 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/post-4.html
+17-02-2026 13:36:09 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [14] depth=2, pending=46, est=53s
+17-02-2026 13:36:10 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/post-5.html
+17-02-2026 13:36:10 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 13:36:10 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/post-5.html
+17-02-2026 13:36:10 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [15] depth=2, pending=45, est=52s
+17-02-2026 13:36:11 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/categories/
+17-02-2026 13:36:11 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:36:11 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/categories/
+17-02-2026 13:36:11 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [16] depth=2, pending=47, est=54s
+17-02-2026 13:36:13 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/tags/
+17-02-2026 13:36:13 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:36:13 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/tags/
+17-02-2026 13:36:13 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [17] depth=2, pending=49, est=56s
+17-02-2026 13:36:14 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-01.html
+17-02-2026 13:36:14 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:36:14 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-01.html
+17-02-2026 13:36:14 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [18] depth=2, pending=48, est=55s
+17-02-2026 13:36:15 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-02.html
+17-02-2026 13:36:15 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 13:36:15 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-02.html
+17-02-2026 13:36:15 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [19] depth=2, pending=47, est=54s
+17-02-2026 13:36:16 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-03.html
+17-02-2026 13:36:16 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:36:16 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-03.html
+17-02-2026 13:36:16 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [20] depth=2, pending=46, est=53s
+17-02-2026 13:36:18 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-04.html
+17-02-2026 13:36:18 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:36:18 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-04.html
+17-02-2026 13:36:18 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [21] depth=2, pending=45, est=52s
+17-02-2026 13:36:19 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-05.html
+17-02-2026 13:36:19 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 13:36:19 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-05.html
+17-02-2026 13:36:19 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [22] depth=2, pending=44, est=51s
+17-02-2026 13:36:21 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-06.html
+17-02-2026 13:36:21 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:36:21 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-06.html
+17-02-2026 13:36:21 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [23] depth=2, pending=43, est=49s
+17-02-2026 13:36:22 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-07.html
+17-02-2026 13:36:22 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36
+17-02-2026 13:36:22 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-07.html
+17-02-2026 13:36:22 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [24] depth=2, pending=42, est=48s
+17-02-2026 13:36:23 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-08.html
+17-02-2026 13:36:23 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:36:23 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-08.html
+17-02-2026 13:36:23 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [25] depth=2, pending=41, est=47s
+17-02-2026 13:36:25 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-09.html
+17-02-2026 13:36:25 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:36:25 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-09.html
+17-02-2026 13:36:25 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [26] depth=2, pending=40, est=46s
+17-02-2026 13:36:26 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-10.html
+17-02-2026 13:36:26 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36
+17-02-2026 13:36:26 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-10.html
+17-02-2026 13:36:26 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [27] depth=2, pending=39, est=45s
+17-02-2026 13:36:27 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-11.html
+17-02-2026 13:36:27 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:36:27 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-11.html
+17-02-2026 13:36:27 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [28] depth=2, pending=38, est=44s
+17-02-2026 13:36:28 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-12.html
+17-02-2026 13:36:28 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:36:28 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-12.html
+17-02-2026 13:36:28 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [29] depth=2, pending=37, est=43s
+17-02-2026 13:36:29 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-13.html
+17-02-2026 13:36:29 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:36:29 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-13.html
+17-02-2026 13:36:29 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [30] depth=2, pending=36, est=41s
+17-02-2026 13:36:30 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-14.html
+17-02-2026 13:36:30 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:36:30 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-14.html
+17-02-2026 13:36:30 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [31] depth=2, pending=35, est=40s
+17-02-2026 13:36:32 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-15.html
+17-02-2026 13:36:32 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:36:32 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-15.html
+17-02-2026 13:36:32 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [32] depth=2, pending=34, est=39s
+17-02-2026 13:36:33 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-16.html
+17-02-2026 13:36:33 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:36:33 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-16.html
+17-02-2026 13:36:33 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [33] depth=2, pending=33, est=38s
+17-02-2026 13:36:34 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-17.html
+17-02-2026 13:36:34 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:36:34 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-17.html
+17-02-2026 13:36:34 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [34] depth=2, pending=32, est=37s
+17-02-2026 13:36:35 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-18.html
+17-02-2026 13:36:35 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:36:35 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-18.html
+17-02-2026 13:36:35 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [35] depth=2, pending=31, est=36s
+17-02-2026 13:36:36 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-19.html
+17-02-2026 13:36:36 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 13:36:36 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-19.html
+17-02-2026 13:36:36 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [36] depth=2, pending=30, est=34s
+17-02-2026 13:36:38 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-20.html
+17-02-2026 13:36:38 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:36:38 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-20.html
+17-02-2026 13:36:38 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [37] depth=2, pending=29, est=33s
+17-02-2026 13:36:39 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-21.html
+17-02-2026 13:36:39 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:36:39 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-21.html
+17-02-2026 13:36:39 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [38] depth=2, pending=28, est=32s
+17-02-2026 13:36:40 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-22.html
+17-02-2026 13:36:40 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:36:40 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-22.html
+17-02-2026 13:36:40 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [39] depth=2, pending=27, est=31s
+17-02-2026 13:36:42 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-23.html
+17-02-2026 13:36:42 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 13:36:42 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-23.html
+17-02-2026 13:36:42 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [40] depth=2, pending=26, est=30s
+17-02-2026 13:36:44 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-24.html
+17-02-2026 13:36:44 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:36:44 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-24.html
+17-02-2026 13:36:44 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [41] depth=2, pending=25, est=29s
+17-02-2026 13:36:45 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-25.html
+17-02-2026 13:36:45 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36
+17-02-2026 13:36:45 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-25.html
+17-02-2026 13:36:45 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [42] depth=2, pending=24, est=28s
+17-02-2026 13:36:46 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-26.html
+17-02-2026 13:36:46 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:36:46 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-26.html
+17-02-2026 13:36:46 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [43] depth=2, pending=23, est=26s
+17-02-2026 13:36:47 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-27.html
+17-02-2026 13:36:47 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 13:36:47 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-27.html
+17-02-2026 13:36:47 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [44] depth=2, pending=22, est=25s
+17-02-2026 13:36:49 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-28.html
+17-02-2026 13:36:49 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:36:49 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-28.html
+17-02-2026 13:36:49 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [45] depth=2, pending=21, est=24s
+17-02-2026 13:36:50 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-29.html
+17-02-2026 13:36:50 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:36:50 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-29.html
+17-02-2026 13:36:50 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [46] depth=2, pending=20, est=23s
+17-02-2026 13:36:52 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-30.html
+17-02-2026 13:36:52 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36
+17-02-2026 13:36:52 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-30.html
+17-02-2026 13:36:52 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [47] depth=2, pending=19, est=22s
+17-02-2026 13:36:53 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-31.html
+17-02-2026 13:36:53 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:36:53 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-31.html
+17-02-2026 13:36:53 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [48] depth=2, pending=18, est=21s
+17-02-2026 13:36:55 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-32.html
+17-02-2026 13:36:55 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:36:55 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-32.html
+17-02-2026 13:36:55 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [49] depth=2, pending=17, est=20s
+17-02-2026 13:36:56 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-33.html
+17-02-2026 13:36:56 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:36:56 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-33.html
+17-02-2026 13:36:56 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [50] depth=2, pending=16, est=18s
+17-02-2026 13:36:58 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-34.html
+17-02-2026 13:36:58 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:36:58 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-34.html
+17-02-2026 13:36:58 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [51] depth=2, pending=15, est=17s
+17-02-2026 13:36:59 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/product-35.html
+17-02-2026 13:36:59 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:36:59 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/product-35.html
+17-02-2026 13:36:59 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [52] depth=2, pending=14, est=16s
+17-02-2026 13:37:01 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/products/compare.html?ids=1,2,3
+17-02-2026 13:37:01 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:37:01 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/products/compare.html?ids=1,2,3
+17-02-2026 13:37:01 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [53] depth=2, pending=13, est=15s
+17-02-2026 13:37:02 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/getting-started.html
+17-02-2026 13:37:02 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:37:02 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/getting-started.html
+17-02-2026 13:37:02 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [54] depth=2, pending=12, est=14s
+17-02-2026 13:37:03 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/installation.html
+17-02-2026 13:37:03 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36
+17-02-2026 13:37:03 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/installation.html
+17-02-2026 13:37:03 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [55] depth=2, pending=12, est=14s
+17-02-2026 13:37:04 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/guides/
+17-02-2026 13:37:04 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:04 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/guides/
+17-02-2026 13:37:04 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [56] depth=2, pending=14, est=16s
+17-02-2026 13:37:06 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/api-reference/
+17-02-2026 13:37:06 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 13:37:06 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/api-reference/
+17-02-2026 13:37:06 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [57] depth=2, pending=17, est=20s
+17-02-2026 13:37:07 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/downloads/
+17-02-2026 13:37:07 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:07 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/downloads/
+17-02-2026 13:37:07 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [58] depth=2, pending=17, est=20s
+17-02-2026 13:37:08 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/portal/dashboard.html?tab=overview&period=monthly
+17-02-2026 13:37:08 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:37:08 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/portal/dashboard.html?tab=overview&period=monthly
+17-02-2026 13:37:08 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [59] depth=2, pending=19, est=22s
+17-02-2026 13:37:09 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/dashboard.html
+17-02-2026 13:37:09 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36
+17-02-2026 13:37:09 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/dashboard.html
+17-02-2026 13:37:09 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [60] depth=2, pending=22, est=25s
+17-02-2026 13:37:11 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/categories/seguridad.html
+17-02-2026 13:37:11 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:11 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/categories/seguridad.html
+17-02-2026 13:37:11 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [61] depth=3, pending=21, est=24s
+17-02-2026 13:37:12 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/categories/desarrollo.html
+17-02-2026 13:37:12 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:37:12 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/categories/desarrollo.html
+17-02-2026 13:37:12 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [62] depth=3, pending=20, est=23s
+17-02-2026 13:37:14 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/categories/cloud.html
+17-02-2026 13:37:14 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:37:14 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/categories/cloud.html
+17-02-2026 13:37:14 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [63] depth=3, pending=19, est=22s
+17-02-2026 13:37:15 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/tags/python.html
+17-02-2026 13:37:15 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:37:15 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/tags/python.html
+17-02-2026 13:37:15 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [64] depth=3, pending=18, est=21s
+17-02-2026 13:37:16 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/tags/docker.html
+17-02-2026 13:37:16 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:37:16 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/tags/docker.html
+17-02-2026 13:37:16 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [65] depth=3, pending=17, est=20s
+17-02-2026 13:37:18 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/blog/tags/aws.html
+17-02-2026 13:37:18 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:18 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/blog/tags/aws.html
+17-02-2026 13:37:18 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [66] depth=3, pending=16, est=18s
+17-02-2026 13:37:19 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/guides/quickstart.html
+17-02-2026 13:37:19 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:37:19 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/guides/quickstart.html
+17-02-2026 13:37:19 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [67] depth=3, pending=15, est=17s
+17-02-2026 13:37:20 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/guides/configuration.html
+17-02-2026 13:37:20 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:37:20 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/guides/configuration.html
+17-02-2026 13:37:20 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [68] depth=3, pending=14, est=16s
+17-02-2026 13:37:21 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/guides/deployment.html
+17-02-2026 13:37:21 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:37:21 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/guides/deployment.html
+17-02-2026 13:37:21 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [69] depth=3, pending=13, est=15s
+17-02-2026 13:37:22 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/guides/advanced/
+17-02-2026 13:37:22 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:22 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/guides/advanced/
+17-02-2026 13:37:22 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [70] depth=3, pending=15, est=17s
+17-02-2026 13:37:23 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/api-reference/authentication.html
+17-02-2026 13:37:23 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:37:23 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/api-reference/authentication.html
+17-02-2026 13:37:23 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [71] depth=3, pending=14, est=16s
+17-02-2026 13:37:24 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/api-reference/endpoints.html
+17-02-2026 13:37:24 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:24 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/api-reference/endpoints.html
+17-02-2026 13:37:24 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [72] depth=3, pending=14, est=16s
+17-02-2026 13:37:25 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/api-reference/errors.html
+17-02-2026 13:37:25 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:37:25 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/api-reference/errors.html
+17-02-2026 13:37:25 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [73] depth=3, pending=13, est=15s
+17-02-2026 13:37:26 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/api-reference/rate-limiting.html
+17-02-2026 13:37:26 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:26 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/api-reference/rate-limiting.html
+17-02-2026 13:37:26 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [74] depth=3, pending=12, est=14s
+17-02-2026 13:37:27 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/downloads/changelog.html
+17-02-2026 13:37:27 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:27 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/downloads/changelog.html
+17-02-2026 13:37:27 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [75] depth=3, pending=11, est=13s
+17-02-2026 13:37:28 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/portal/reports/
+17-02-2026 13:37:28 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:37:28 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/portal/reports/
+17-02-2026 13:37:28 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [76] depth=3, pending=13, est=15s
+17-02-2026 13:37:29 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/portal/profile/
+17-02-2026 13:37:29 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:29 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/portal/profile/
+17-02-2026 13:37:29 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [77] depth=3, pending=14, est=16s
+17-02-2026 13:37:31 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/portal/
+17-02-2026 13:37:31 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:37:31 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/portal/
+17-02-2026 13:37:31 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [78] depth=3, pending=13, est=15s
+17-02-2026 13:37:32 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/users/
+17-02-2026 13:37:32 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:32 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/users/
+17-02-2026 13:37:32 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [79] depth=3, pending=17, est=20s
+17-02-2026 13:37:33 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/settings/
+17-02-2026 13:37:33 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:37:33 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/settings/
+17-02-2026 13:37:33 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [80] depth=3, pending=20, est=23s
+17-02-2026 13:37:34 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/logs/
+17-02-2026 13:37:34 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:37:34 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/logs/
+17-02-2026 13:37:34 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [81] depth=3, pending=22, est=25s
+17-02-2026 13:37:35 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/
+17-02-2026 13:37:35 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:37:35 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/
+17-02-2026 13:37:35 | INFO     | modules.map.crawler:_descubrir_urls:1063 | CRAWLER    | [82] depth=3, pending=21, est=24s
+17-02-2026 13:37:37 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/guides/advanced/performance.html
+17-02-2026 13:37:37 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:37 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/guides/advanced/performance.html
+17-02-2026 13:37:38 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/guides/advanced/scaling.html
+17-02-2026 13:37:38 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:38 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/guides/advanced/scaling.html
+17-02-2026 13:37:39 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/docs/guides/advanced/troubleshooting.html
+17-02-2026 13:37:39 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36
+17-02-2026 13:37:39 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/docs/guides/advanced/troubleshooting.html
+17-02-2026 13:37:40 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/api/v1/
+17-02-2026 13:37:40 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:37:40 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/api/v1/
+17-02-2026 13:37:41 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/portal/reports/index.html?year=2025
+17-02-2026 13:37:41 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:37:41 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/portal/reports/index.html?year=2025
+17-02-2026 13:37:43 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/portal/reports/generate.html?type=sales&format=pdf&from=2025-01-01&to=2025-06-30
+17-02-2026 13:37:43 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:37:43 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/portal/reports/generate.html?type=sales&format=pdf&from=2025-01-01&to=2025-06-30
+17-02-2026 13:37:44 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/portal/reports/export.html?report_id=999&format=csv
+17-02-2026 13:37:44 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36
+17-02-2026 13:37:44 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/portal/reports/export.html?report_id=999&format=csv
+17-02-2026 13:37:45 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/portal/profile/edit.html?section=personal
+17-02-2026 13:37:45 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:37:45 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/portal/profile/edit.html?section=personal
+17-02-2026 13:37:46 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/portal/profile/security.html
+17-02-2026 13:37:46 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:46 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/portal/profile/security.html
+17-02-2026 13:37:48 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/users/edit.html?id=1
+17-02-2026 13:37:48 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:37:48 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/users/edit.html?id=1
+17-02-2026 13:37:49 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/users/edit.html?id=2
+17-02-2026 13:37:49 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:37:49 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/users/edit.html?id=2
+17-02-2026 13:37:50 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/users/edit.html?id=3
+17-02-2026 13:37:50 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:50 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/users/edit.html?id=3
+17-02-2026 13:37:51 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/users/create.html
+17-02-2026 13:37:51 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:51 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/users/create.html
+17-02-2026 13:37:52 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/users/permissions.html
+17-02-2026 13:37:52 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:52 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/users/permissions.html
+17-02-2026 13:37:53 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/settings/general.html
+17-02-2026 13:37:53 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:37:53 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/settings/general.html
+17-02-2026 13:37:54 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/settings/security.html
+17-02-2026 13:37:54 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 13:37:54 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/settings/security.html
+17-02-2026 13:37:55 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/settings/email.html
+17-02-2026 13:37:55 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:55 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/settings/email.html
+17-02-2026 13:37:56 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/settings/backups/
+17-02-2026 13:37:56 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:56 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/settings/backups/
+17-02-2026 13:37:58 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/logs/access.html?date=2025-01-15&level=info
+17-02-2026 13:37:58 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:37:58 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/logs/access.html?date=2025-01-15&level=info
+17-02-2026 13:37:59 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/logs/access.html?date=2025-01-16&level=error
+17-02-2026 13:37:59 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:37:59 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/logs/access.html?date=2025-01-16&level=error
+17-02-2026 13:38:01 | DEBUG    | modules.map.crawler:_realizar_peticion:435 | CRAWLER    | Fetching: http://localhost:8888/admin/logs/audit.html
+17-02-2026 13:38:01 | DEBUG    | modules.map.crawler:_realizar_peticion:436 | CRAWLER    | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:38:01 | DEBUG    | modules.map.crawler:_realizar_peticion:455 | CRAWLER    | Código de estado 200: http://localhost:8888/admin/logs/audit.html
+17-02-2026 13:38:01 | SUCCESS  | modules.map.crawler:_descubrir_urls:1079 | CRAWLER    | Completado: 103 URLs descubiertas
+17-02-2026 13:38:01 | INFO     | modules.map.crawler:_descubrir_urls:1081 | CRAWLER    | Páginas exploradas: 103
+17-02-2026 13:38:01 | DEBUG    | modules.map.crawler:_cerrar_sesion:261 | CRAWLER    | Sesión HTTP del crawler cerrada
+17-02-2026 13:38:01 | DEBUG    | core.report_gen:añadir_hallazgo:254 | Hallazgo agregado: crawler (map)
+17-02-2026 13:38:01 | INFO     | modules.map.crawler:run:183 | CRAWLER    | Crawleo completado. URLs descubiertas: 103
+17-02-2026 13:38:01 | INFO     | __main__:ejecutar_mapeo_individual:690 | CRAWLER    | Modulo crawler completado
+17-02-2026 13:38:01 | INFO     | __main__:ejecutar_mapeo_individual:721 | SODA       | Modulos de mapeo individuales finalizados
+17-02-2026 13:38:01 | INFO     | core.report_gen:exportar_json:372 | SODA       | Escaneo finalizado en 132.02s
+17-02-2026 13:38:01 | INFO     | core.report_gen:exportar_json:388 | SODA       | Reporte JSON exportado: pruebas_map/crawler/report.json
+17-02-2026 13:38:01 | DEBUG    | core.html_report:__init__:720 | GeneradorReporteHTML inicializado
+17-02-2026 13:38:01 | INFO     | core.html_report:generate:901 | SODA       | Reporte HTML generado: pruebas_map/crawler/report.html
+17-02-2026 13:38:01 | INFO     | __main__:main:1054 | SODA       | Reportes guardados en: pruebas_map/crawler
+17-02-2026 13:39:10 | INFO     | core.report_gen:__init__:156 | SODA       | GeneradorReportes inicializado para: http://localhost:8888/
+17-02-2026 13:39:10 | INFO     | core.report_gen:cargar_reporte_existente:198 | SODA       | Cargados hallazgos previos desde: pruebas_map/crawler/report.json
+17-02-2026 13:39:10 | INFO     | __main__:main:952 | SODA       | Reporte previo cargado desde: pruebas_map/crawler/report.json
+17-02-2026 13:39:10 | INFO     | __main__:ejecutar_mapeo_individual:668 | SODA       | Ejecutando modulos de mapeo individuales: visualizer
+17-02-2026 13:39:10 | INFO     | modules.map.visualizer:run:187 | VISUALIZER | Iniciando visualización de http://localhost:8888/
+17-02-2026 13:39:10 | INFO     | modules.map.visualizer:run:209 | VISUALIZER | 103 URLs de crawler encontradas
+17-02-2026 13:39:10 | INFO     | modules.map.visualizer:generate_from_urls:444 | VISUALIZER | Generando diagrama...
+17-02-2026 13:39:10 | INFO     | modules.map.visualizer:generate_from_urls:460 | VISUALIZER | Rutas únicas encontradas: 100
+17-02-2026 13:39:10 | INFO     | modules.map.visualizer:_llamar_llm:255 | VISUALIZER | Llamando a openrouter/openai/gpt-5.2-codex para generar diagrama...
+17-02-2026 13:43:42 | DEBUG    | modules.map.visualizer:_llamar_llm:272 | VISUALIZER | Respuesta del LLM recibida
+17-02-2026 13:43:42 | SUCCESS  | modules.map.visualizer:generate_from_urls:499 | VISUALIZER | Diagrama generado: /home/dani/Desktop/Soda/pruebas_map/crawler/web_map.drawio
+17-02-2026 13:43:42 | DEBUG    | core.report_gen:añadir_hallazgo:254 | Hallazgo agregado: visualizer (map)
+17-02-2026 13:43:42 | INFO     | __main__:ejecutar_mapeo_individual:719 | VISUALIZER | Modulo visualizer completado
+17-02-2026 13:43:42 | INFO     | __main__:ejecutar_mapeo_individual:721 | SODA       | Modulos de mapeo individuales finalizados
+17-02-2026 13:43:42 | INFO     | core.report_gen:exportar_json:372 | SODA       | Escaneo finalizado en 271.88s
+17-02-2026 13:43:42 | INFO     | core.report_gen:exportar_json:388 | SODA       | Reporte JSON exportado: pruebas_map/crawler/report.json
+17-02-2026 13:43:42 | DEBUG    | core.html_report:__init__:720 | GeneradorReporteHTML inicializado
+17-02-2026 13:43:42 | INFO     | core.html_report:generate:901 | SODA       | Reporte HTML generado: pruebas_map/crawler/report.html
+17-02-2026 13:43:42 | INFO     | __main__:main:1054 | SODA       | Reportes guardados en: pruebas_map/crawler

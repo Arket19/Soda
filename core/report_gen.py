@@ -195,7 +195,6 @@ class GeneradorReportes:
             hallazgos_existentes = datos_existentes.get("hallazgos", [])
             self.fusionar_hallazgos(hallazgos_existentes)
             
-            logger.info(f"SODA       | Cargados hallazgos previos desde: {filepath}")
             return True
         
         #Se manejan los errores de decodificación JSON

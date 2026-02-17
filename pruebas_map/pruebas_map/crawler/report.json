@@ -1,0 +1,250 @@
+{
+  "metadatos": {
+    "herramienta": "SODA",
+    "version": "1.0.0",
+    "objetivo": "http://localhost:8888/",
+    "scan_duration_seconds": 271.880859,
+    "scan_completed": "2026-02-17T13:43:42.620235"
+  },
+  "hallazgos": [
+    {
+      "module": "crawler",
+      "categoria": "map",
+      "timestamp": "2026-02-17T13:38:01.042983",
+      "data": {
+        "urls": [
+          "http://localhost:8888/",
+          "http://localhost:8888/about/",
+          "http://localhost:8888/admin/login.html",
+          "http://localhost:8888/blog/",
+          "http://localhost:8888/docs/",
+          "http://localhost:8888/portal/login.html?redirect=/portal/dashboard",
+          "http://localhost:8888/products/",
+          "http://localhost:8888/about/careers.html",
+          "http://localhost:8888/about/contact.html",
+          "http://localhost:8888/about/team.html",
+          "http://localhost:8888/admin/dashboard.html",
+          "http://localhost:8888/blog/categories/",
+          "http://localhost:8888/blog/post-1.html",
+          "http://localhost:8888/blog/post-2.html",
+          "http://localhost:8888/blog/post-3.html",
+          "http://localhost:8888/blog/post-4.html",
+          "http://localhost:8888/blog/post-5.html",
+          "http://localhost:8888/blog/tags/",
+          "http://localhost:8888/docs/api-reference/",
+          "http://localhost:8888/docs/downloads/",
+          "http://localhost:8888/docs/getting-started.html",
+          "http://localhost:8888/docs/guides/",
+          "http://localhost:8888/docs/installation.html",
+          "http://localhost:8888/portal/dashboard.html?tab=overview&period=monthly",
+          "http://localhost:8888/products/compare.html?ids=1,2,3",
+          "http://localhost:8888/products/product-01.html",
+          "http://localhost:8888/products/product-02.html",
+          "http://localhost:8888/products/product-03.html",
+          "http://localhost:8888/products/product-04.html",
+          "http://localhost:8888/products/product-05.html",
+          "http://localhost:8888/products/product-06.html",
+          "http://localhost:8888/products/product-07.html",
+          "http://localhost:8888/products/product-08.html",
+          "http://localhost:8888/products/product-09.html",
+          "http://localhost:8888/products/product-10.html",
+          "http://localhost:8888/products/product-11.html",
+          "http://localhost:8888/products/product-12.html",
+          "http://localhost:8888/products/product-13.html",
+          "http://localhost:8888/products/product-14.html",
+          "http://localhost:8888/products/product-15.html",
+          "http://localhost:8888/products/product-16.html",
+          "http://localhost:8888/products/product-17.html",
+          "http://localhost:8888/products/product-18.html",
+          "http://localhost:8888/products/product-19.html",
+          "http://localhost:8888/products/product-20.html",
+          "http://localhost:8888/products/product-21.html",
+          "http://localhost:8888/products/product-22.html",
+          "http://localhost:8888/products/product-23.html",
+          "http://localhost:8888/products/product-24.html",
+          "http://localhost:8888/products/product-25.html",
+          "http://localhost:8888/products/product-26.html",
+          "http://localhost:8888/products/product-27.html",
+          "http://localhost:8888/products/product-28.html",
+          "http://localhost:8888/products/product-29.html",
+          "http://localhost:8888/products/product-30.html",
+          "http://localhost:8888/products/product-31.html",
+          "http://localhost:8888/products/product-32.html",
+          "http://localhost:8888/products/product-33.html",
+          "http://localhost:8888/products/product-34.html",
+          "http://localhost:8888/products/product-35.html",
+          "http://localhost:8888/admin/",
+          "http://localhost:8888/admin/logs/",
+          "http://localhost:8888/admin/settings/",
+          "http://localhost:8888/admin/users/",
+          "http://localhost:8888/blog/categories/cloud.html",
+          "http://localhost:8888/blog/categories/desarrollo.html",
+          "http://localhost:8888/blog/categories/seguridad.html",
+          "http://localhost:8888/blog/tags/aws.html",
+          "http://localhost:8888/blog/tags/docker.html",
+          "http://localhost:8888/blog/tags/python.html",
+          "http://localhost:8888/docs/api-reference/authentication.html",
+          "http://localhost:8888/docs/api-reference/endpoints.html",
+          "http://localhost:8888/docs/api-reference/errors.html",
+          "http://localhost:8888/docs/api-reference/rate-limiting.html",
+          "http://localhost:8888/docs/downloads/changelog.html",
+          "http://localhost:8888/docs/guides/advanced/",
+          "http://localhost:8888/docs/guides/configuration.html",
+          "http://localhost:8888/docs/guides/deployment.html",
+          "http://localhost:8888/docs/guides/quickstart.html",
+          "http://localhost:8888/portal/",
+          "http://localhost:8888/portal/profile/",
+          "http://localhost:8888/portal/reports/",
+          "http://localhost:8888/admin/logs/access.html?date=2025-01-15&level=info",
+          "http://localhost:8888/admin/logs/access.html?date=2025-01-16&level=error",
+          "http://localhost:8888/admin/logs/audit.html",
+          "http://localhost:8888/admin/settings/backups/",
+          "http://localhost:8888/admin/settings/email.html",
+          "http://localhost:8888/admin/settings/general.html",
+          "http://localhost:8888/admin/settings/security.html",
+          "http://localhost:8888/admin/users/create.html",
+          "http://localhost:8888/admin/users/edit.html?id=1",
+          "http://localhost:8888/admin/users/edit.html?id=2",
+          "http://localhost:8888/admin/users/edit.html?id=3",
+          "http://localhost:8888/admin/users/permissions.html",
+          "http://localhost:8888/api/v1/",
+          "http://localhost:8888/docs/guides/advanced/performance.html",
+          "http://localhost:8888/docs/guides/advanced/scaling.html",
+          "http://localhost:8888/docs/guides/advanced/troubleshooting.html",
+          "http://localhost:8888/portal/profile/edit.html?section=personal",
+          "http://localhost:8888/portal/profile/security.html",
+          "http://localhost:8888/portal/reports/export.html?report_id=999&format=csv",
+          "http://localhost:8888/portal/reports/generate.html?type=sales&format=pdf&from=2025-01-01&to=2025-06-30",
+          "http://localhost:8888/portal/reports/index.html?year=2025"
+        ],
+        "urls_discovered": 103,
+        "max_depth": 4,
+        "exclude_paths": [],
+        "base_url": "http://localhost:8888/",
+        "subdomains": [],
+        "robots_txt": "http://localhost:8888/robots.txt",
+        "sitemap": [
+          "http://localhost:8888/sitemap.xml"
+        ],
+        "get_params": {
+          "redirect": [
+            [
+              "/portal/dashboard",
+              "/portal/login.html"
+            ]
+          ],
+          "ids": [
+            [
+              "1,2,3",
+              "/products/compare.html"
+            ]
+          ],
+          "tab": [
+            [
+              "overview",
+              "/portal/dashboard.html"
+            ]
+          ],
+          "period": [
+            [
+              "monthly",
+              "/portal/dashboard.html"
+            ]
+          ],
+          "year": [
+            [
+              "2025",
+              "/portal/reports/index.html"
+            ]
+          ],
+          "type": [
+            [
+              "sales",
+              "/portal/reports/generate.html"
+            ]
+          ],
+          "format": [
+            [
+              "pdf",
+              "/portal/reports/generate.html"
+            ],
+            [
+              "csv",
+              "/portal/reports/export.html"
+            ]
+          ],
+          "from": [
+            [
+              "2025-01-01",
+              "/portal/reports/generate.html"
+            ]
+          ],
+          "to": [
+            [
+              "2025-06-30",
+              "/portal/reports/generate.html"
+            ]
+          ],
+          "report_id": [
+            [
+              "999",
+              "/portal/reports/export.html"
+            ]
+          ],
+          "section": [
+            [
+              "personal",
+              "/portal/profile/edit.html"
+            ]
+          ],
+          "id": [
+            [
+              "3",
+              "/admin/users/edit.html"
+            ],
+            [
+              "1",
+              "/admin/users/edit.html"
+            ],
+            [
+              "2",
+              "/admin/users/edit.html"
+            ]
+          ],
+          "date": [
+            [
+              "2025-01-15",
+              "/admin/logs/access.html"
+            ],
+            [
+              "2025-01-16",
+              "/admin/logs/access.html"
+            ]
+          ],
+          "level": [
+            [
+              "error",
+              "/admin/logs/access.html"
+            ],
+            [
+              "info",
+              "/admin/logs/access.html"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "module": "visualizer",
+      "categoria": "map",
+      "timestamp": "2026-02-17T13:43:42.620100",
+      "data": {
+        "archivo_generado": "/home/dani/Desktop/Soda/pruebas_map/crawler/web_map.drawio",
+        "archivo_drawio": "/home/dani/Desktop/Soda/pruebas_map/crawler/web_map.drawio",
+        "urls_procesadas": 103,
+        "rutas_unicas": 100,
+        "modo": "automatico"
+      }
+    }
+  ]
+}

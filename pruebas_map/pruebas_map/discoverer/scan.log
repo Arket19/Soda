@@ -1,0 +1,156 @@
+17-02-2026 13:52:54 | INFO     | core.report_gen:__init__:156 | SODA       | GeneradorReportes inicializado para: http://localhost:8888/
+17-02-2026 13:52:54 | INFO     | __main__:ejecutar_mapeo_individual:668 | SODA       | Ejecutando modulos de mapeo individuales: discoverer
+17-02-2026 13:52:54 | INFO     | modules.map.discoverer:run:146 | DISCOVERER | Iniciando descubrimiento de http://localhost:8888/
+17-02-2026 13:52:54 | INFO     | modules.map.discoverer:run:147 | DISCOVERER | Profundidad máxima: 4, Límite por directorio: 30
+17-02-2026 13:52:54 | INFO     | modules.map.discoverer:_descubrir:1027 | DISCOVERER | Fase 0: descubrimiento inicial desde http://localhost:8888/
+17-02-2026 13:52:54 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/
+17-02-2026 13:52:54 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:52:54 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/
+17-02-2026 13:52:54 | DEBUG    | modules.map.discoverer:_descubrir:1038 | DISCOVERER | HTML raíz: 7 enlaces extraídos
+17-02-2026 13:52:56 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/robots.txt
+17-02-2026 13:52:56 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:52:56 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/robots.txt
+17-02-2026 13:52:56 | DEBUG    | modules.map.discoverer:_descubrir:1048 | DISCOVERER | robots.txt encontrado
+17-02-2026 13:52:56 | DEBUG    | modules.map.discoverer:_obtener_sitemap:660 | DISCOVERER | Obteniendo sitemap: http://localhost:8888/sitemap.xml
+17-02-2026 13:52:57 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/sitemap.xml
+17-02-2026 13:52:57 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:52:57 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/sitemap.xml
+17-02-2026 13:52:57 | DEBUG    | modules.map.discoverer:_descubrir:1078 | DISCOVERER | Sitemaps: 1 encontrados, 8 URLs
+17-02-2026 13:52:57 | INFO     | modules.map.discoverer:_descubrir:1162 | DISCOVERER | Fase 0 completada: 8 URLs de nivel 1 descubiertas
+17-02-2026 13:52:57 | INFO     | modules.map.discoverer:_descubrir:1182 | DISCOVERER | Nivel 1: procesando 8 URLs
+17-02-2026 13:52:58 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/about/
+17-02-2026 13:52:58 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 13:52:58 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/about/
+17-02-2026 13:52:58 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [1/8] http://localhost:8888/about/
+17-02-2026 13:52:59 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/products/
+17-02-2026 13:52:59 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36
+17-02-2026 13:52:59 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/products/
+17-02-2026 13:52:59 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [2/8] http://localhost:8888/products/
+17-02-2026 13:53:00 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/portal/
+17-02-2026 13:53:00 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:53:00 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/portal/
+17-02-2026 13:53:00 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [3/8] http://localhost:8888/portal/
+17-02-2026 13:53:02 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/blog/
+17-02-2026 13:53:02 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 13:53:02 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/blog/
+17-02-2026 13:53:02 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [4/8] http://localhost:8888/blog/
+17-02-2026 13:53:03 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/api/
+17-02-2026 13:53:03 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:53:03 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/api/
+17-02-2026 13:53:03 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [5/8] http://localhost:8888/api/
+17-02-2026 13:53:04 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/docs/
+17-02-2026 13:53:04 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:53:04 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/docs/
+17-02-2026 13:53:04 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [6/8] http://localhost:8888/docs/
+17-02-2026 13:53:05 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/hidden/
+17-02-2026 13:53:05 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 13:53:05 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/hidden/
+17-02-2026 13:53:05 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [7/8] http://localhost:8888/hidden/
+17-02-2026 13:53:06 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/admin/
+17-02-2026 13:53:06 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:53:06 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/admin/
+17-02-2026 13:53:06 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [8/8] http://localhost:8888/admin/
+17-02-2026 13:53:06 | INFO     | modules.map.discoverer:_descubrir:1400 | DISCOVERER | Nivel 1 completado: 8 páginas visitadas
+17-02-2026 13:53:06 | INFO     | modules.map.discoverer:_descubrir:1182 | DISCOVERER | Nivel 2: procesando 11 URLs
+17-02-2026 13:53:08 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/admin/settings/
+17-02-2026 13:53:08 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:53:08 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/admin/settings/
+17-02-2026 13:53:08 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=2] [1/11] http://localhost:8888/admin/settings/
+17-02-2026 13:53:10 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/blog/tags/
+17-02-2026 13:53:10 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:53:10 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/blog/tags/
+17-02-2026 13:53:10 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=2] [2/11] http://localhost:8888/blog/tags/
+17-02-2026 13:53:11 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/docs/api-reference/
+17-02-2026 13:53:11 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:53:11 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/docs/api-reference/
+17-02-2026 13:53:11 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=2] [3/11] http://localhost:8888/docs/api-reference/
+17-02-2026 13:53:13 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/hidden/backup/
+17-02-2026 13:53:13 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:53:13 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/hidden/backup/
+17-02-2026 13:53:13 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=2] [4/11] http://localhost:8888/hidden/backup/
+17-02-2026 13:53:14 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/admin/users/
+17-02-2026 13:53:14 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:53:14 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/admin/users/
+17-02-2026 13:53:14 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=2] [5/11] http://localhost:8888/admin/users/
+17-02-2026 13:53:15 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/docs/guides/
+17-02-2026 13:53:15 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:53:15 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/docs/guides/
+17-02-2026 13:53:15 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=2] [6/11] http://localhost:8888/docs/guides/
+17-02-2026 13:53:16 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/docs/downloads/
+17-02-2026 13:53:16 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:53:16 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/docs/downloads/
+17-02-2026 13:53:16 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=2] [7/11] http://localhost:8888/docs/downloads/
+17-02-2026 13:53:18 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/hidden/test/
+17-02-2026 13:53:18 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 13:53:18 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/hidden/test/
+17-02-2026 13:53:18 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=2] [8/11] http://localhost:8888/hidden/test/
+17-02-2026 13:53:19 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/api/v1/
+17-02-2026 13:53:19 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:53:19 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/api/v1/
+17-02-2026 13:53:19 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=2] [9/11] http://localhost:8888/api/v1/
+17-02-2026 13:53:20 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/admin/logs/
+17-02-2026 13:53:20 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:53:20 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/admin/logs/
+17-02-2026 13:53:20 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=2] [10/11] http://localhost:8888/admin/logs/
+17-02-2026 13:53:21 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/blog/categories/
+17-02-2026 13:53:21 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:53:21 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/blog/categories/
+17-02-2026 13:53:21 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=2] [11/11] http://localhost:8888/blog/categories/
+17-02-2026 13:53:21 | INFO     | modules.map.discoverer:_descubrir:1400 | DISCOVERER | Nivel 2 completado: 11 páginas visitadas
+17-02-2026 13:53:21 | INFO     | modules.map.discoverer:_descubrir:1182 | DISCOVERER | Nivel 3: procesando 6 URLs
+17-02-2026 13:53:23 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/admin/settings/backups/
+17-02-2026 13:53:23 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 13:53:23 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/admin/settings/backups/
+17-02-2026 13:53:23 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=3] [1/6] http://localhost:8888/admin/settings/backups/
+17-02-2026 13:53:24 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/api/v1/products/
+17-02-2026 13:53:24 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 13:53:24 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/api/v1/products/
+17-02-2026 13:53:24 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=3] [2/6] http://localhost:8888/api/v1/products/
+17-02-2026 13:53:25 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/api/v1/auth/
+17-02-2026 13:53:25 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15
+17-02-2026 13:53:25 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/api/v1/auth/
+17-02-2026 13:53:25 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=3] [3/6] http://localhost:8888/api/v1/auth/
+17-02-2026 13:53:26 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/api/v1/orders/
+17-02-2026 13:53:26 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:53:26 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/api/v1/orders/
+17-02-2026 13:53:26 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=3] [4/6] http://localhost:8888/api/v1/orders/
+17-02-2026 13:53:27 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/api/v1/users/
+17-02-2026 13:53:27 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 13:53:27 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/api/v1/users/
+17-02-2026 13:53:27 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=3] [5/6] http://localhost:8888/api/v1/users/
+17-02-2026 13:53:28 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: http://localhost:8888/docs/guides/advanced/
+17-02-2026 13:53:28 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+17-02-2026 13:53:28 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: http://localhost:8888/docs/guides/advanced/
+17-02-2026 13:53:28 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=3] [6/6] http://localhost:8888/docs/guides/advanced/
+17-02-2026 13:53:28 | INFO     | modules.map.discoverer:_descubrir:1400 | DISCOVERER | Nivel 3 completado: 6 páginas visitadas
+17-02-2026 13:53:28 | INFO     | modules.map.discoverer:_descubrir:1179 | DISCOVERER | Nivel 4: sin URLs pendientes, fin del descubrimiento
+17-02-2026 13:53:28 | SUCCESS  | modules.map.discoverer:_descubrir:1435 | DISCOVERER | Completado: 118 URLs descubiertas, profundidad máxima alcanzada: 4
+17-02-2026 13:53:28 | DEBUG    | modules.map.discoverer:_cerrar_sesion:261 | DISCOVERER | Sesión HTTP del discoverer cerrada
+17-02-2026 13:53:28 | DEBUG    | core.report_gen:añadir_hallazgo:254 | Hallazgo agregado: discoverer (map)
+17-02-2026 13:53:28 | INFO     | modules.map.discoverer:run:180 | DISCOVERER | Descubrimiento completado. URLs descubiertas: 118
+17-02-2026 13:53:28 | INFO     | __main__:ejecutar_mapeo_individual:706 | DISCOVERER | Modulo discoverer completado
+17-02-2026 13:53:28 | INFO     | __main__:ejecutar_mapeo_individual:721 | SODA       | Modulos de mapeo individuales finalizados
+17-02-2026 13:53:28 | INFO     | core.report_gen:exportar_json:372 | SODA       | Escaneo finalizado en 33.61s
+17-02-2026 13:53:28 | INFO     | core.report_gen:exportar_json:388 | SODA       | Reporte JSON exportado: pruebas_map/discoverer/report.json
+17-02-2026 13:53:28 | DEBUG    | core.html_report:__init__:720 | GeneradorReporteHTML inicializado
+17-02-2026 13:53:28 | INFO     | core.html_report:generate:901 | SODA       | Reporte HTML generado: pruebas_map/discoverer/report.html
+17-02-2026 13:53:28 | INFO     | __main__:main:1054 | SODA       | Reportes guardados en: pruebas_map/discoverer
+17-02-2026 13:54:41 | INFO     | core.report_gen:__init__:156 | SODA       | GeneradorReportes inicializado para: http://localhost:8888/
+17-02-2026 13:54:41 | INFO     | core.report_gen:cargar_reporte_existente:198 | SODA       | Cargados hallazgos previos desde: pruebas_map/discoverer/report.json
+17-02-2026 13:54:41 | INFO     | __main__:main:952 | SODA       | Reporte previo cargado desde: pruebas_map/discoverer/report.json
+17-02-2026 13:54:41 | INFO     | __main__:ejecutar_mapeo_individual:668 | SODA       | Ejecutando modulos de mapeo individuales: visualizer
+17-02-2026 13:54:41 | INFO     | modules.map.visualizer:run:187 | VISUALIZER | Iniciando visualización de http://localhost:8888/
+17-02-2026 13:54:41 | INFO     | modules.map.visualizer:run:209 | VISUALIZER | 118 URLs de discoverer encontradas
+17-02-2026 13:54:41 | INFO     | modules.map.visualizer:generate_from_urls:444 | VISUALIZER | Generando diagrama...
+17-02-2026 13:54:41 | INFO     | modules.map.visualizer:generate_from_urls:460 | VISUALIZER | Rutas únicas encontradas: 118
+17-02-2026 13:54:41 | INFO     | modules.map.visualizer:_llamar_llm:255 | VISUALIZER | Llamando a openrouter/openai/gpt-5.2-codex para generar diagrama...
+17-02-2026 14:00:26 | DEBUG    | modules.map.visualizer:_llamar_llm:272 | VISUALIZER | Respuesta del LLM recibida
+17-02-2026 14:00:26 | SUCCESS  | modules.map.visualizer:generate_from_urls:499 | VISUALIZER | Diagrama generado: /home/dani/Desktop/Soda/pruebas_map/discoverer/web_map.drawio
+17-02-2026 14:00:26 | DEBUG    | core.report_gen:añadir_hallazgo:254 | Hallazgo agregado: visualizer (map)
+17-02-2026 14:00:26 | INFO     | __main__:ejecutar_mapeo_individual:719 | VISUALIZER | Modulo visualizer completado
+17-02-2026 14:00:26 | INFO     | __main__:ejecutar_mapeo_individual:721 | SODA       | Modulos de mapeo individuales finalizados
+17-02-2026 14:00:26 | INFO     | core.report_gen:exportar_json:372 | SODA       | Escaneo finalizado en 344.82s
+17-02-2026 14:00:26 | INFO     | core.report_gen:exportar_json:388 | SODA       | Reporte JSON exportado: pruebas_map/discoverer/report.json
+17-02-2026 14:00:26 | DEBUG    | core.html_report:__init__:720 | GeneradorReporteHTML inicializado
+17-02-2026 14:00:26 | INFO     | core.html_report:generate:901 | SODA       | Reporte HTML generado: pruebas_map/discoverer/report.html
+17-02-2026 14:00:26 | INFO     | __main__:main:1054 | SODA       | Reportes guardados en: pruebas_map/discoverer

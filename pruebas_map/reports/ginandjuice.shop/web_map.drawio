@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="visualizer.py" agent="SODA Web Mapper" version="1.0.0">
+<diagram name="Web Map" id="0">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+    <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Nodo Raíz: ginandjuice.shop -->
+        <mxCell id="n1" value="ginandjuice.shop" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="530" y="40" width="140" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Nivel 1: Raíces -->
+        <!-- /about -->
+        <mxCell id="n2" value="/about" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="100" y="180" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="n1" target="n2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- /blog (Directorio) -->
+        <mxCell id="n3" value="/blog" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="260" y="180" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="n1" target="n3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- /catalog (Directorio) -->
+        <mxCell id="n4" value="/catalog" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="420" y="180" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="n1" target="n4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- /my-account -->
+        <mxCell id="n5" value="/my-account" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="580" y="180" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="n1" target="n5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Nivel 2: Hijos de /blog -->
+        <!-- /blog/post -->
+        <mxCell id="n6" value="post" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="260" y="280" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="n3" target="n6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Nivel 2: Hijos de /catalog -->
+        <!-- /catalog/cart -->
+        <mxCell id="n7" value="cart" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="360" y="280" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="n4" target="n7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- /catalog/product -->
+        <mxCell id="n8" value="product" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="480" y="280" width="120" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="n4" target="n8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+    </root>
+    </mxGraphModel>
+</diagram>
+</mxfile>

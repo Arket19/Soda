@@ -1,0 +1,354 @@
+{
+  "metadatos": {
+    "herramienta": "SODA",
+    "version": "1.0.0",
+    "objetivo": "http://localhost:8888/",
+    "scan_duration_seconds": 344.817658,
+    "scan_completed": "2026-02-17T14:00:26.767179"
+  },
+  "hallazgos": [
+    {
+      "module": "discoverer",
+      "categoria": "map",
+      "timestamp": "2026-02-17T13:53:28.275574",
+      "data": {
+        "urls": [
+          "http://localhost:8888/",
+          "http://localhost:8888/about/",
+          "http://localhost:8888/admin/",
+          "http://localhost:8888/api/",
+          "http://localhost:8888/blog/",
+          "http://localhost:8888/docs/",
+          "http://localhost:8888/hidden/",
+          "http://localhost:8888/portal/",
+          "http://localhost:8888/products/",
+          "http://localhost:8888/admin/logs/",
+          "http://localhost:8888/admin/settings/",
+          "http://localhost:8888/admin/users/",
+          "http://localhost:8888/api/v1/",
+          "http://localhost:8888/blog/categories/",
+          "http://localhost:8888/blog/tags/",
+          "http://localhost:8888/docs/api-reference/",
+          "http://localhost:8888/docs/downloads/",
+          "http://localhost:8888/docs/guides/",
+          "http://localhost:8888/hidden/backup/",
+          "http://localhost:8888/hidden/test/",
+          "http://localhost:8888/admin/settings/backups/",
+          "http://localhost:8888/api/v1/auth/",
+          "http://localhost:8888/api/v1/orders/",
+          "http://localhost:8888/api/v1/products/",
+          "http://localhost:8888/api/v1/users/",
+          "http://localhost:8888/docs/guides/advanced/",
+          "http://localhost:8888/about/careers.html",
+          "http://localhost:8888/about/contact.html",
+          "http://localhost:8888/about/team.html",
+          "http://localhost:8888/admin/dashboard.html",
+          "http://localhost:8888/admin/login.html",
+          "http://localhost:8888/admin/logs/access.html",
+          "http://localhost:8888/admin/logs/audit.html",
+          "http://localhost:8888/admin/settings/backups/create.html",
+          "http://localhost:8888/admin/settings/backups/restore.html",
+          "http://localhost:8888/admin/settings/email.html",
+          "http://localhost:8888/admin/settings/general.html",
+          "http://localhost:8888/admin/settings/security.html",
+          "http://localhost:8888/admin/users/create.html",
+          "http://localhost:8888/admin/users/edit.html",
+          "http://localhost:8888/admin/users/permissions.html",
+          "http://localhost:8888/api/v1/auth/login.html",
+          "http://localhost:8888/api/v1/auth/register.html",
+          "http://localhost:8888/api/v1/auth/reset.html",
+          "http://localhost:8888/api/v1/auth/verify.html",
+          "http://localhost:8888/api/v1/orders/detail.html",
+          "http://localhost:8888/api/v1/orders/index.html",
+          "http://localhost:8888/api/v1/orders/invoice.html",
+          "http://localhost:8888/api/v1/products/detail.html",
+          "http://localhost:8888/api/v1/products/index.html",
+          "http://localhost:8888/api/v1/products/reviews.html",
+          "http://localhost:8888/api/v1/users/index.html",
+          "http://localhost:8888/api/v1/users/profile.html",
+          "http://localhost:8888/api/v1/users/search.html",
+          "http://localhost:8888/blog/categories/cloud.html",
+          "http://localhost:8888/blog/categories/desarrollo.html",
+          "http://localhost:8888/blog/categories/seguridad.html",
+          "http://localhost:8888/blog/post-1.html",
+          "http://localhost:8888/blog/post-2.html",
+          "http://localhost:8888/blog/post-3.html",
+          "http://localhost:8888/blog/post-4.html",
+          "http://localhost:8888/blog/post-5.html",
+          "http://localhost:8888/blog/tags/aws.html",
+          "http://localhost:8888/blog/tags/docker.html",
+          "http://localhost:8888/blog/tags/python.html",
+          "http://localhost:8888/docs/api-reference/authentication.html",
+          "http://localhost:8888/docs/api-reference/endpoints.html",
+          "http://localhost:8888/docs/api-reference/errors.html",
+          "http://localhost:8888/docs/api-reference/rate-limiting.html",
+          "http://localhost:8888/docs/downloads/changelog.html",
+          "http://localhost:8888/docs/getting-started.html",
+          "http://localhost:8888/docs/guides/advanced/performance.html",
+          "http://localhost:8888/docs/guides/advanced/scaling.html",
+          "http://localhost:8888/docs/guides/advanced/troubleshooting.html",
+          "http://localhost:8888/docs/guides/configuration.html",
+          "http://localhost:8888/docs/guides/deployment.html",
+          "http://localhost:8888/docs/guides/quickstart.html",
+          "http://localhost:8888/docs/installation.html",
+          "http://localhost:8888/hidden/backup/config-old.html",
+          "http://localhost:8888/hidden/test/debug.html",
+          "http://localhost:8888/hidden/test/phpinfo.html",
+          "http://localhost:8888/portal/login.html",
+          "http://localhost:8888/products/compare.html",
+          "http://localhost:8888/products/product-01.html",
+          "http://localhost:8888/products/product-02.html",
+          "http://localhost:8888/products/product-03.html",
+          "http://localhost:8888/products/product-04.html",
+          "http://localhost:8888/products/product-05.html",
+          "http://localhost:8888/products/product-06.html",
+          "http://localhost:8888/products/product-07.html",
+          "http://localhost:8888/products/product-08.html",
+          "http://localhost:8888/products/product-09.html",
+          "http://localhost:8888/products/product-10.html",
+          "http://localhost:8888/products/product-11.html",
+          "http://localhost:8888/products/product-12.html",
+          "http://localhost:8888/products/product-13.html",
+          "http://localhost:8888/products/product-14.html",
+          "http://localhost:8888/products/product-15.html",
+          "http://localhost:8888/products/product-16.html",
+          "http://localhost:8888/products/product-17.html",
+          "http://localhost:8888/products/product-18.html",
+          "http://localhost:8888/products/product-19.html",
+          "http://localhost:8888/products/product-20.html",
+          "http://localhost:8888/products/product-21.html",
+          "http://localhost:8888/products/product-22.html",
+          "http://localhost:8888/products/product-23.html",
+          "http://localhost:8888/products/product-24.html",
+          "http://localhost:8888/products/product-25.html",
+          "http://localhost:8888/products/product-26.html",
+          "http://localhost:8888/products/product-27.html",
+          "http://localhost:8888/products/product-28.html",
+          "http://localhost:8888/products/product-29.html",
+          "http://localhost:8888/products/product-30.html",
+          "http://localhost:8888/products/product-31.html",
+          "http://localhost:8888/products/product-32.html",
+          "http://localhost:8888/products/product-33.html",
+          "http://localhost:8888/products/product-34.html",
+          "http://localhost:8888/products/product-35.html"
+        ],
+        "urls_por_nivel": {
+          "1": [
+            "http://localhost:8888/about/",
+            "http://localhost:8888/admin/",
+            "http://localhost:8888/api/",
+            "http://localhost:8888/blog/",
+            "http://localhost:8888/docs/",
+            "http://localhost:8888/hidden/",
+            "http://localhost:8888/portal/",
+            "http://localhost:8888/products/"
+          ],
+          "2": [
+            "http://localhost:8888/admin/logs/",
+            "http://localhost:8888/admin/settings/",
+            "http://localhost:8888/admin/users/",
+            "http://localhost:8888/api/v1/",
+            "http://localhost:8888/blog/categories/",
+            "http://localhost:8888/blog/tags/",
+            "http://localhost:8888/docs/api-reference/",
+            "http://localhost:8888/docs/downloads/",
+            "http://localhost:8888/docs/guides/",
+            "http://localhost:8888/hidden/backup/",
+            "http://localhost:8888/hidden/test/"
+          ],
+          "3": [
+            "http://localhost:8888/admin/settings/backups/",
+            "http://localhost:8888/api/v1/auth/",
+            "http://localhost:8888/api/v1/orders/",
+            "http://localhost:8888/api/v1/products/",
+            "http://localhost:8888/api/v1/users/",
+            "http://localhost:8888/docs/guides/advanced/"
+          ],
+          "4": []
+        },
+        "urls_truncadas": [],
+        "urls_discovered": 118,
+        "max_depth": 4,
+        "exclude_paths": [],
+        "base_url": "http://localhost:8888/",
+        "subdomains": [],
+        "robots_txt": "http://localhost:8888/robots.txt",
+        "sitemap": [
+          "http://localhost:8888/sitemap.xml"
+        ],
+        "get_params": {
+          "redirect": [
+            [
+              "/portal/dashboard",
+              "/portal/login.html"
+            ],
+            [
+              "/portal/dashboard",
+              "/portal/login.html"
+            ],
+            [
+              "/portal/dashboard",
+              "/portal/login.html"
+            ],
+            [
+              "/portal/dashboard",
+              "/portal/login.html"
+            ],
+            [
+              "/portal/dashboard",
+              "/portal/login.html"
+            ]
+          ],
+          "ids": [
+            [
+              "1,2,3",
+              "/products/compare.html"
+            ]
+          ],
+          "id": [
+            [
+              "1",
+              "/admin/users/edit.html"
+            ],
+            [
+              "2",
+              "/admin/users/edit.html"
+            ],
+            [
+              "3",
+              "/admin/users/edit.html"
+            ],
+            [
+              "100",
+              "/api/v1/products/detail.html"
+            ],
+            [
+              "42",
+              "/api/v1/users/profile.html"
+            ]
+          ],
+          "date": [
+            [
+              "2025-01-15",
+              "/admin/logs/access.html"
+            ],
+            [
+              "2025-01-16",
+              "/admin/logs/access.html"
+            ]
+          ],
+          "level": [
+            [
+              "info",
+              "/admin/logs/access.html"
+            ],
+            [
+              "error",
+              "/admin/logs/access.html"
+            ]
+          ],
+          "category": [
+            [
+              "electronics",
+              "/api/v1/products/index.html"
+            ]
+          ],
+          "sort": [
+            [
+              "price",
+              "/api/v1/products/index.html"
+            ]
+          ],
+          "format": [
+            [
+              "json",
+              "/api/v1/products/detail.html"
+            ]
+          ],
+          "product_id": [
+            [
+              "100",
+              "/api/v1/products/reviews.html"
+            ]
+          ],
+          "rating": [
+            [
+              "5",
+              "/api/v1/products/reviews.html"
+            ]
+          ],
+          "status": [
+            [
+              "pending",
+              "/api/v1/orders/index.html"
+            ]
+          ],
+          "from": [
+            [
+              "2025-01-01",
+              "/api/v1/orders/index.html"
+            ]
+          ],
+          "order_id": [
+            [
+              "5001",
+              "/api/v1/orders/detail.html"
+            ],
+            [
+              "5001",
+              "/api/v1/orders/invoice.html"
+            ]
+          ],
+          "download": [
+            [
+              "true",
+              "/api/v1/orders/invoice.html"
+            ]
+          ],
+          "page": [
+            [
+              "1",
+              "/api/v1/users/index.html"
+            ]
+          ],
+          "limit": [
+            [
+              "20",
+              "/api/v1/users/index.html"
+            ]
+          ],
+          "q": [
+            [
+              "test",
+              "/api/v1/users/search.html"
+            ]
+          ],
+          "role": [
+            [
+              "admin",
+              "/api/v1/users/search.html"
+            ]
+          ],
+          "active": [
+            [
+              "true",
+              "/api/v1/users/search.html"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "module": "visualizer",
+      "categoria": "map",
+      "timestamp": "2026-02-17T14:00:26.766739",
+      "data": {
+        "archivo_generado": "/home/dani/Desktop/Soda/pruebas_map/discoverer/web_map.drawio",
+        "archivo_drawio": "/home/dani/Desktop/Soda/pruebas_map/discoverer/web_map.drawio",
+        "urls_procesadas": 118,
+        "rutas_unicas": 118,
+        "modo": "automatico"
+      }
+    }
+  ]
+}

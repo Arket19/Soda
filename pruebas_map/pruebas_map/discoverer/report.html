@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SODA - Reporte: localhost:8888</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent-blue: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-yellow: #d29922;
+            --accent-purple: #a371f7;
+            --border-color: #30363d;
+            --shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .header-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0;
+        }
+        
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+        
+        .tab-btn:hover {
+            color: var(--text-primary);
+        }
+        
+        .tab-btn.active {
+            color: var(--accent-blue);
+            border-bottom-color: var(--accent-blue);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card h3 {
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .data-table th {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .data-table tr:hover {
+            background: rgba(88, 166, 255, 0.05);
+        }
+        
+        /* URL Lists */
+        .url-list {
+            list-style: none;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .url-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-family: monospace;
+            font-size: 0.85rem;
+            word-break: break-all;
+        }
+        
+        .url-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .depth-label {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            background: var(--accent-purple);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-right: 0.5rem;
+        }
+        
+        /* Code blocks */
+        .code-block {
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            padding: 1rem;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Collapsible sections */
+        .collapsible {
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .collapsible::before {
+            content: "▶ ";
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+        
+        .collapsible.open::before {
+            transform: rotate(90deg);
+        }
+        
+        .collapsible-content {
+            display: none;
+            padding-top: 1rem;
+        }
+        
+        .collapsible-content.open {
+            display: block;
+        }
+        
+        /* Technology badges */
+        .tech-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0.25rem;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>SODA</h1>
+            <p style="color: var(--text-secondary);">Herramienta de Reconocimiento Web</p>
+            <div class="header-meta">
+                <span>🎯 <a href="http://localhost:8888/" target="_blank" style="color: var(--text-primary); text-decoration: none;"><strong>localhost:8888</strong></a></span>
+                <span>📅 13:54 17/02/26</span>
+                <span>🔧 v1.0.0</span>
+            </div>
+        </header>
+        
+        <!-- Tabs Navigation: solo Pasivo y Activo (mapeo va dentro de Activo) -->
+        <div class="tabs">
+            
+            
+            <button class="tab-btn active" onclick="showTab('active')">Activo</button>
+            
+        </div>
+
+        <!-- PASSIVE Tab: siempre es la pestaña activa por defecto si tiene contenido -->
+        
+        
+        <!-- ACTIVE Tab: incluye WAF, fuzzer y modulos de mapeo -->
+        
+        <div id="tab-active" class="tab-content active">
+
+            <!-- Seccion de mapeo: estadisticas, subdominios, robots, sitemaps, parametros -->
+            
+
+            <!-- Estadisticas del crawler (si corrió) -->
+            
+
+            <!-- Estadisticas del discoverer (si corrió) -->
+            
+            <div class="card">
+                <h3>🔎 Discoverer</h3>
+                <div class="stats-grid" style="margin-bottom: 0;">
+                    <div class="stat-card">
+                        <div class="stat-value">118</div>
+                        <div class="stat-label">URLs Descubiertas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Subdominios</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Profundidad Máxima</div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+
+            
+
+            
+            <div class="card">
+                <h3>🔗 Parámetros GET Detectados</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Puntos potenciales de inyección (SQL, XSS, IDOR, etc.)</p>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Parámetro</th>
+                            <th>Valores de ejemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td><code>/portal/login.html?redirect</code></td>
+                            <td>/portal/dashboard</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/products/compare.html?ids</code></td>
+                            <td>1,2,3</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/admin/users/edit.html?id</code></td>
+                            <td>1, 2, 3</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/products/detail.html?id</code></td>
+                            <td>100</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/users/profile.html?id</code></td>
+                            <td>42</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/admin/logs/access.html?date</code></td>
+                            <td>2025-01-15, 2025-01-16</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/admin/logs/access.html?level</code></td>
+                            <td>info, error</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/products/index.html?category</code></td>
+                            <td>electronics</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/products/index.html?sort</code></td>
+                            <td>price</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/products/detail.html?format</code></td>
+                            <td>json</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/products/reviews.html?product_id</code></td>
+                            <td>100</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/products/reviews.html?rating</code></td>
+                            <td>5</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/orders/index.html?status</code></td>
+                            <td>pending</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/orders/index.html?from</code></td>
+                            <td>2025-01-01</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/orders/detail.html?order_id</code></td>
+                            <td>5001</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/orders/invoice.html?order_id</code></td>
+                            <td>5001</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/orders/invoice.html?download</code></td>
+                            <td>true</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/users/index.html?page</code></td>
+                            <td>1</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/users/index.html?limit</code></td>
+                            <td>20</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/users/search.html?q</code></td>
+                            <td>test</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/users/search.html?role</code></td>
+                            <td>admin</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><code>/api/v1/users/search.html?active</code></td>
+                            <td>true</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            
+
+            
+            <div class="card">
+                <h3>🤖 robots.txt</h3>
+                <p style="color: var(--text-secondary);">http://localhost:8888/robots.txt</p>
+            </div>
+            
+
+            
+            <div class="card">
+                <h3>🗺️ Sitemaps</h3>
+                <ul class="url-list">
+                    
+                    <li>http://localhost:8888/sitemap.xml</li>
+                    
+                </ul>
+            </div>
+            
+
+            
+
+            <!-- Diagrama del visualizador -->
+            
+            <div class="card">
+                <h3>📊 Diagrama de Estructura Web</h3>
+                
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    ✅ Diagrama generado — <code>/home/dani/Desktop/Soda/pruebas_map/discoverer/web_map.drawio</code>
+                </p>
+                <div class="mxgraph" style="max-width:100%; border:1px solid var(--border-color); border-radius:8px; overflow:hidden; background:#ffffff;" data-mxgraph="{&#34;highlight&#34;: &#34;#0000ff&#34;, &#34;nav&#34;: true, &#34;resize&#34;: true, &#34;xml&#34;: &#34;&lt;?xml version=\&#34;1.0\&#34; encoding=\&#34;UTF-8\&#34;?&gt;\n&lt;mxfile host=\&#34;visualizer.py\&#34; agent=\&#34;SODA Web Mapper\&#34; version=\&#34;1.0.0\&#34;&gt;\n  &lt;diagram name=\&#34;Web Map\&#34; id=\&#34;0\&#34;&gt;\n    &lt;mxGraphModel dx=\&#34;7000\&#34; dy=\&#34;1200\&#34; grid=\&#34;1\&#34; gridSize=\&#34;10\&#34; guides=\&#34;1\&#34; tooltips=\&#34;1\&#34; connect=\&#34;1\&#34; arrows=\&#34;1\&#34; fold=\&#34;1\&#34; page=\&#34;1\&#34; pageScale=\&#34;1\&#34; pageWidth=\&#34;7000\&#34; pageHeight=\&#34;1200\&#34; math=\&#34;0\&#34; shadow=\&#34;0\&#34;&gt;\n      &lt;root&gt;\n        &lt;mxCell id=\&#34;0\&#34;/&gt;\n        &lt;mxCell id=\&#34;1\&#34; parent=\&#34;0\&#34;/&gt;\n\n        &lt;!-- Root --&gt;\n        &lt;mxCell id=\&#34;n1\&#34; value=\&#34;localhost:8888\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;3430\&#34; y=\&#34;20\&#34; width=\&#34;140\&#34; height=\&#34;70\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;!-- Level 1 --&gt;\n        &lt;mxCell id=\&#34;n2\&#34; value=\&#34;about\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;400\&#34; y=\&#34;150\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n3\&#34; value=\&#34;admin\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1000\&#34; y=\&#34;150\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n4\&#34; value=\&#34;api\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1600\&#34; y=\&#34;150\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n5\&#34; value=\&#34;blog\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2200\&#34; y=\&#34;150\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n6\&#34; value=\&#34;docs\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2800\&#34; y=\&#34;150\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n7\&#34; value=\&#34;products\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;3500\&#34; y=\&#34;150\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n8\&#34; value=\&#34;hidden\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;4300\&#34; y=\&#34;150\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n9\&#34; value=\&#34;portal\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;5000\&#34; y=\&#34;150\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;!-- About --&gt;\n        &lt;mxCell id=\&#34;n10\&#34; value=\&#34;careers.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;250\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n11\&#34; value=\&#34;contact.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;400\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n12\&#34; value=\&#34;team.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;550\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;!-- Admin --&gt;\n        &lt;mxCell id=\&#34;n13\&#34; value=\&#34;dashboard.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;700\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n14\&#34; value=\&#34;login.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;850\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n15\&#34; value=\&#34;logs\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1000\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n16\&#34; value=\&#34;settings\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1150\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n17\&#34; value=\&#34;users\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1300\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n18\&#34; value=\&#34;access.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;925\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n19\&#34; value=\&#34;audit.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1075\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n20\&#34; value=\&#34;backups\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1000\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n21\&#34; value=\&#34;email.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1150\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n22\&#34; value=\&#34;general.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1300\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n23\&#34; value=\&#34;security.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1450\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n24\&#34; value=\&#34;create.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;925\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n25\&#34; value=\&#34;restore.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1075\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n26\&#34; value=\&#34;create.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1225\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n27\&#34; value=\&#34;edit.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1375\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n28\&#34; value=\&#34;permissions.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1525\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;!-- API --&gt;\n        &lt;mxCell id=\&#34;n29\&#34; value=\&#34;v1\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1600\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n30\&#34; value=\&#34;auth\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1450\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n31\&#34; value=\&#34;orders\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1600\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n32\&#34; value=\&#34;products\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1750\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n33\&#34; value=\&#34;users\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1900\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n34\&#34; value=\&#34;login.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1300\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n35\&#34; value=\&#34;register.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1450\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n36\&#34; value=\&#34;reset.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1600\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n37\&#34; value=\&#34;verify.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1750\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n38\&#34; value=\&#34;detail.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1450\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n39\&#34; value=\&#34;index.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1600\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n40\&#34; value=\&#34;invoice.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1750\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n41\&#34; value=\&#34;detail.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1600\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n42\&#34; value=\&#34;index.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1750\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n43\&#34; value=\&#34;reviews.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1900\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n44\&#34; value=\&#34;index.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1750\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n45\&#34; value=\&#34;profile.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1900\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n46\&#34; value=\&#34;search.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2050\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;!-- Blog --&gt;\n        &lt;mxCell id=\&#34;n47\&#34; value=\&#34;categories\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1750\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n48\&#34; value=\&#34;post-1.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1900\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n49\&#34; value=\&#34;post-2.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2050\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n50\&#34; value=\&#34;post-3.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2200\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n51\&#34; value=\&#34;post-4.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2350\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n52\&#34; value=\&#34;post-5.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2500\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n53\&#34; value=\&#34;tags\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2650\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n54\&#34; value=\&#34;cloud.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1600\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n55\&#34; value=\&#34;desarrollo.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1750\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n56\&#34; value=\&#34;seguridad.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1900\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n57\&#34; value=\&#34;aws.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2500\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n58\&#34; value=\&#34;docker.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2650\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n59\&#34; value=\&#34;python.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2800\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;!-- Docs --&gt;\n        &lt;mxCell id=\&#34;n60\&#34; value=\&#34;api-reference\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2500\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n61\&#34; value=\&#34;downloads\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2650\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n62\&#34; value=\&#34;getting-started.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2800\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n63\&#34; value=\&#34;guides\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2950\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n64\&#34; value=\&#34;installation.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;3100\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n65\&#34; value=\&#34;authentication.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2350\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n66\&#34; value=\&#34;endpoints.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2500\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n67\&#34; value=\&#34;errors.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2650\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n68\&#34; value=\&#34;rate-limiting.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2800\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n69\&#34; value=\&#34;changelog.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2650\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n70\&#34; value=\&#34;advanced\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2800\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n71\&#34; value=\&#34;configuration.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2950\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n72\&#34; value=\&#34;deployment.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;3100\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n73\&#34; value=\&#34;quickstart.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;3250\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n74\&#34; value=\&#34;performance.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2650\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n75\&#34; value=\&#34;scaling.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2800\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n76\&#34; value=\&#34;troubleshooting.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2950\&#34; y=\&#34;600\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;!-- Hidden --&gt;\n        &lt;mxCell id=\&#34;n77\&#34; value=\&#34;backup\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;4225\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n78\&#34; value=\&#34;test\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;4375\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n79\&#34; value=\&#34;config-old.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;4225\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;n80\&#34; value=\&#34;debug.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;4300\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n81\&#34; value=\&#34;phpinfo.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;4450\&#34; y=\&#34;450\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;!-- Portal --&gt;\n        &lt;mxCell id=\&#34;n82\&#34; value=\&#34;login.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;5000\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;!-- Products --&gt;\n        &lt;mxCell id=\&#34;n83\&#34; value=\&#34;compare.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;875\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n84\&#34; value=\&#34;product-01.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1025\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n85\&#34; value=\&#34;product-02.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1175\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n86\&#34; value=\&#34;product-03.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1325\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n87\&#34; value=\&#34;product-04.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1475\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n88\&#34; value=\&#34;product-05.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1625\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n89\&#34; value=\&#34;product-06.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1775\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n90\&#34; value=\&#34;product-07.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;1925\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n91\&#34; value=\&#34;product-08.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2075\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n92\&#34; value=\&#34;product-09.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2225\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n93\&#34; value=\&#34;product-10.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2375\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n94\&#34; value=\&#34;product-11.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2525\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n95\&#34; value=\&#34;product-12.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2675\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n96\&#34; value=\&#34;product-13.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2825\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n97\&#34; value=\&#34;product-14.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;2975\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n98\&#34; value=\&#34;product-15.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;3125\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n99\&#34; value=\&#34;product-16.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;3275\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n100\&#34; value=\&#34;product-17.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;3425\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n101\&#34; value=\&#34;product-18.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;3575\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n102\&#34; value=\&#34;product-19.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;3725\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n103\&#34; value=\&#34;product-20.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;3875\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n104\&#34; value=\&#34;product-21.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;4025\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n105\&#34; value=\&#34;product-22.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;4175\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n106\&#34; value=\&#34;product-23.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;4325\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n107\&#34; value=\&#34;product-24.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;4475\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n108\&#34; value=\&#34;product-25.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;4625\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n109\&#34; value=\&#34;product-26.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;4775\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n110\&#34; value=\&#34;product-27.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;4925\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n111\&#34; value=\&#34;product-28.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;5075\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n112\&#34; value=\&#34;product-29.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;5225\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n113\&#34; value=\&#34;product-30.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;5375\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n114\&#34; value=\&#34;product-31.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;5525\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n115\&#34; value=\&#34;product-32.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;5675\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n116\&#34; value=\&#34;product-33.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;5825\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n117\&#34; value=\&#34;product-34.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;5975\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;n118\&#34; value=\&#34;product-35.html\&#34; style=\&#34;rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;\&#34; vertex=\&#34;1\&#34; parent=\&#34;1\&#34;&gt;\n          &lt;mxGeometry x=\&#34;6125\&#34; y=\&#34;300\&#34; width=\&#34;120\&#34; height=\&#34;30\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;!-- Edges --&gt;\n        &lt;mxCell id=\&#34;e1\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n1\&#34; target=\&#34;n2\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e2\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n1\&#34; target=\&#34;n3\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e3\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n1\&#34; target=\&#34;n4\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e4\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n1\&#34; target=\&#34;n5\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e5\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n1\&#34; target=\&#34;n6\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e6\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n1\&#34; target=\&#34;n7\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e7\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n1\&#34; target=\&#34;n8\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e8\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n1\&#34; target=\&#34;n9\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;e9\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n2\&#34; target=\&#34;n10\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e10\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n2\&#34; target=\&#34;n11\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e11\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n2\&#34; target=\&#34;n12\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;e12\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n3\&#34; target=\&#34;n13\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e13\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n3\&#34; target=\&#34;n14\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e14\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n3\&#34; target=\&#34;n15\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e15\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n3\&#34; target=\&#34;n16\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e16\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n3\&#34; target=\&#34;n17\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e17\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n15\&#34; target=\&#34;n18\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e18\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n15\&#34; target=\&#34;n19\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e19\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n16\&#34; target=\&#34;n20\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e20\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n16\&#34; target=\&#34;n21\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e21\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n16\&#34; target=\&#34;n22\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e22\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n16\&#34; target=\&#34;n23\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e23\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n20\&#34; target=\&#34;n24\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e24\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n20\&#34; target=\&#34;n25\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e25\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n17\&#34; target=\&#34;n26\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e26\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n17\&#34; target=\&#34;n27\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e27\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n17\&#34; target=\&#34;n28\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;e28\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n4\&#34; target=\&#34;n29\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e29\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n29\&#34; target=\&#34;n30\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e30\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n29\&#34; target=\&#34;n31\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e31\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n29\&#34; target=\&#34;n32\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e32\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n29\&#34; target=\&#34;n33\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e33\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n30\&#34; target=\&#34;n34\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e34\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n30\&#34; target=\&#34;n35\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e35\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n30\&#34; target=\&#34;n36\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e36\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n30\&#34; target=\&#34;n37\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e37\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n31\&#34; target=\&#34;n38\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e38\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n31\&#34; target=\&#34;n39\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e39\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n31\&#34; target=\&#34;n40\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e40\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n32\&#34; target=\&#34;n41\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e41\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n32\&#34; target=\&#34;n42\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e42\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n32\&#34; target=\&#34;n43\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e43\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n33\&#34; target=\&#34;n44\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e44\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n33\&#34; target=\&#34;n45\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e45\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n33\&#34; target=\&#34;n46\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;e46\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n5\&#34; target=\&#34;n47\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e47\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n5\&#34; target=\&#34;n48\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e48\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n5\&#34; target=\&#34;n49\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e49\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n5\&#34; target=\&#34;n50\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e50\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n5\&#34; target=\&#34;n51\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e51\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n5\&#34; target=\&#34;n52\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e52\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n5\&#34; target=\&#34;n53\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e53\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n47\&#34; target=\&#34;n54\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e54\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n47\&#34; target=\&#34;n55\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e55\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n47\&#34; target=\&#34;n56\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e56\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n53\&#34; target=\&#34;n57\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e57\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n53\&#34; target=\&#34;n58\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e58\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n53\&#34; target=\&#34;n59\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;e59\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n6\&#34; target=\&#34;n60\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e60\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n6\&#34; target=\&#34;n61\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e61\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n6\&#34; target=\&#34;n62\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e62\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n6\&#34; target=\&#34;n63\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e63\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n6\&#34; target=\&#34;n64\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e64\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n60\&#34; target=\&#34;n65\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e65\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n60\&#34; target=\&#34;n66\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e66\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n60\&#34; target=\&#34;n67\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e67\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n60\&#34; target=\&#34;n68\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e68\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n61\&#34; target=\&#34;n69\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e69\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n63\&#34; target=\&#34;n70\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e70\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n63\&#34; target=\&#34;n71\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e71\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n63\&#34; target=\&#34;n72\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e72\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n63\&#34; target=\&#34;n73\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e73\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n70\&#34; target=\&#34;n74\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e74\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n70\&#34; target=\&#34;n75\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e75\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n70\&#34; target=\&#34;n76\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;e76\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n8\&#34; target=\&#34;n77\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e77\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n8\&#34; target=\&#34;n78\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e78\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n77\&#34; target=\&#34;n79\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e79\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n78\&#34; target=\&#34;n80\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e80\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n78\&#34; target=\&#34;n81\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;e81\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n9\&#34; target=\&#34;n82\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n        &lt;mxCell id=\&#34;e82\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n83\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e83\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n84\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e84\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n85\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e85\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n86\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e86\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n87\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e87\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n88\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e88\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n89\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e89\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n90\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e90\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n91\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e91\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n92\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e92\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n93\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e93\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n94\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e94\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n95\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e95\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n96\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e96\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n97\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e97\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n98\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e98\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n99\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e99\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n100\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e100\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n101\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e101\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n102\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e102\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n103\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e103\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n104\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e104\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n105\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e105\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n106\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e106\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n107\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e107\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n108\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e108\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n109\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e109\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n110\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e110\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n111\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e111\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n112\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e112\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n113\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e113\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n114\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e114\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n115\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e115\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n116\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e116\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n117\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&#34;e117\&#34; edge=\&#34;1\&#34; parent=\&#34;1\&#34; source=\&#34;n7\&#34; target=\&#34;n118\&#34; style=\&#34;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&#34;&gt;\n          &lt;mxGeometry relative=\&#34;1\&#34; as=\&#34;geometry\&#34;/&gt;\n        &lt;/mxCell&gt;\n\n      &lt;/root&gt;\n    &lt;/mxGraphModel&gt;\n  &lt;/diagram&gt;\n&lt;/mxfile&gt;&#34;}"></div>
+                <script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+                
+            </div>
+            
+
+            
+
+            <!-- WAF y otros modulos activos -->
+            
+        </div>
+        
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>SODA • v1.0.0 • 14:00 17/02/26</p>
+        </footer>
+    </div>
+    
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById('tab-' + tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        function toggleCollapsible(element) {
+            element.classList.toggle('open');
+            element.nextElementSibling.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
