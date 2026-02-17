@@ -621,7 +621,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             <!-- WAF y otros modulos activos -->
             {% for finding in active_findings %}
 
-            {% if finding.module == 'waf_detector' %}
+            {% if finding.module == 'waf_detect' %}
             <div class="card">
                 <h3>🛡️ Detección de WAF</h3>
                 <table class="data-table">

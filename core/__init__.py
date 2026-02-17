@@ -120,7 +120,7 @@ EXTENSIONES_COMUNES: List[str] = [
 
 
 
-###################### WAF DETECTOR (ACTIVE) ######################
+###################### WAF DETECT (ACTIVE) ######################
 
 #Firmas de WAFs conocidos para detección pasiva por headers/cookies
 FIRMAS_WAF: Dict[str, Dict[str, Any]] = {

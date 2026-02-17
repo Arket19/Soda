@@ -396,7 +396,7 @@ async def ejecutar_modulos_pasivos(
         if resultado:
             logger.info(f"{nombre_modulo.upper(): <10} | Modulo {nombre_modulo} completado")
 
-    logger.info("SODA       | === Modulos PASIVOS finalizados ===")
+    logger.info("SODA       | Modulos PASIVOS finalizados")
 
 
 
@@ -467,12 +467,12 @@ async def ejecutar_modulos_activos(
         - resultados: Lista con los resultados de cada tarea.
     """
     
-    logger.info("SODA       | === Iniciando modulos ACTIVOS ===")
+    logger.info("SODA       | Iniciando modulos ACTIVOS")
     
     #Se crea la lista de tareas a ejecutar en paralelo
     tareas = []
 
-    #WAF Detector
+    #WAF Detect
     modulo_waf = WAFDetect()
     tareas.append(modulo_waf.run(url, sesion, reporte))
 
@@ -483,7 +483,7 @@ async def ejecutar_modulos_activos(
 
 
 
-    nombres_modulos = ["waf_detector"]
+    nombres_modulos = ["waf_detect"]
 
     for indice in range(len(resultados)):
         resultado = resultados[indice]
@@ -528,12 +528,12 @@ async def ejecutar_activos_individuales(
     #Se itera sobre los módulos seleccionados
     for nombre_modulo in modulos_seleccionados:
         
-        #WAF Detector
+        #WAF Detect
         if nombre_modulo == "waf":
             modulo = WAFDetect()
             resultado = await modulo.run(url, sesion, reporte)
             if resultado:
-                logger.info("WAF DETECT | Modulo waf_detector completado")
+                logger.info("WAF_DETECT | Modulo waf_detect completado")
 
     logger.info("SODA       | Modulos activos individuales finalizados")
 

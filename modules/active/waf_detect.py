@@ -31,7 +31,7 @@ class WAFDetect:
     """
 
 
-    NOMBRE_MODULO: str = "waf_detector"
+    NOMBRE_MODULO: str = "waf_detect"
     CATEGORIA: str = "active"
 
 
@@ -47,7 +47,7 @@ class WAFDetect:
 
         Está vacío porque los parámetros están definidos como constantes de clase.
         """
-        logger.debug("WAF DETECT | WAFDetect inicializado")
+        logger.debug("WAF_DETECT | WAFDetect inicializado")
 
 
 
@@ -81,7 +81,7 @@ class WAFDetect:
             Diccionario con información del WAF detectado.
         """
 
-        logger.info(f"WAF DETECT | Detectando WAF en: {url}")
+        logger.info(f"WAF_DETECT | Detectando WAF en: {url}")
 
 
         #Se inicializa el diccionario de resultados 
@@ -111,11 +111,11 @@ class WAFDetect:
 
             #Log del resultado
             nombre_waf = resultados["waf_name"] or "No detectado"
-            logger.info(f"WAF DETECT | Resultado: {nombre_waf}")
+            logger.info(f"WAF_DETECT | Resultado: {nombre_waf}")
 
 
         except Exception as error:
-            logger.error(f"WAF DETECT | Error durante detección: {error}")
+            logger.error(f"WAF_DETECT | Error durante detección: {error}")
             resultados["errors"].append(str(error))
 
 
