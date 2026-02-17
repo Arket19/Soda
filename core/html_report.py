@@ -776,7 +776,7 @@ class GeneradorReporteHTML:
             #Se unifican subdominios de ambos módulos eliminando duplicados
             subdominios_crawler = set(datos_crawler.get("subdomains", [])) if datos_crawler else set()
             subdominios_discoverer = set(datos_discoverer.get("subdomains", [])) if datos_discoverer else set()
-            subdominios_unificados = sorted(subdominios_CRAWLER    | subdominios_discoverer)
+            subdominios_unificados = sorted(subdominios_crawler | subdominios_discoverer)
 
             #Se unifican sitemaps de ambos módulos eliminando duplicados
             sitemaps_crawler = datos_crawler.get("sitemap", []) if datos_crawler else []

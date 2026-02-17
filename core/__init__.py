@@ -257,5 +257,6 @@ MODULO_MAPEO_DEFECTO: str = 'discoverer'
 
 ###################### CONFIGURACIÓN LLM (VISUALIZER) ######################
 
-#Tokens máximos para la respuesta del LLM
-MAX_TOKENS_LLM: int = 8000
+#Tokens máximos para la respuesta del LLM 
+#Por defecto hay un límite extremadamente alto, se recomienda configurar un límite de gasto en el proveedor
+MAX_TOKENS_LLM: int = 128000
