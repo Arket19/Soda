@@ -806,7 +806,9 @@ class GeneradorReporteHTML:
                     clave_display = f"{ruta}?{nombre_param}"
                     get_params[clave_display] = valores
 
+
             #Se construye el sub-diccionario del crawler
+            crawler_stats = None
             if datos_crawler:
                 crawler_stats = {
                     "urls_discovered": datos_crawler.get("urls_discovered", 0),

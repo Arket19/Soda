@@ -1,0 +1,80 @@
+17-02-2026 14:43:58 | INFO     | core.report_gen:__init__:156 | SODA       | GeneradorReportes inicializado para: https://ginandjuice.shop/
+17-02-2026 14:43:58 | INFO     | __main__:ejecutar_modulos_mapeo:580 | SODA       | Iniciando modulos de MAPEO
+17-02-2026 14:43:58 | INFO     | modules.map.discoverer:run:146 | DISCOVERER | Iniciando descubrimiento de https://ginandjuice.shop/
+17-02-2026 14:43:58 | INFO     | modules.map.discoverer:run:147 | DISCOVERER | Profundidad máxima: 3, Límite por directorio: 30
+17-02-2026 14:43:58 | INFO     | modules.map.discoverer:_descubrir:1027 | DISCOVERER | Fase 0: descubrimiento inicial desde https://ginandjuice.shop/
+17-02-2026 14:43:58 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: https://ginandjuice.shop/
+17-02-2026 14:43:58 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 14:43:59 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: https://ginandjuice.shop/
+17-02-2026 14:43:59 | DEBUG    | modules.map.discoverer:_descubrir:1038 | DISCOVERER | HTML raíz: 11 enlaces extraídos
+17-02-2026 14:44:00 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: https://ginandjuice.shop/robots.txt
+17-02-2026 14:44:00 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 14:44:00 | DEBUG    | modules.map.discoverer:_realizar_peticion:473 | DISCOVERER | Error HTTP 404: https://ginandjuice.shop/robots.txt
+17-02-2026 14:44:00 | DEBUG    | modules.map.discoverer:_obtener_sitemap:660 | DISCOVERER | Obteniendo sitemap: https://ginandjuice.shop/sitemap.xml
+17-02-2026 14:44:02 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: https://ginandjuice.shop/sitemap.xml
+17-02-2026 14:44:02 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 14:44:02 | DEBUG    | modules.map.discoverer:_realizar_peticion:473 | DISCOVERER | Error HTTP 404: https://ginandjuice.shop/sitemap.xml
+17-02-2026 14:44:02 | DEBUG    | modules.map.discoverer:_obtener_sitemap:660 | DISCOVERER | Obteniendo sitemap: https://ginandjuice.shop/sitemap_index.xml
+17-02-2026 14:44:04 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: https://ginandjuice.shop/sitemap_index.xml
+17-02-2026 14:44:04 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 14:44:04 | DEBUG    | modules.map.discoverer:_realizar_peticion:473 | DISCOVERER | Error HTTP 404: https://ginandjuice.shop/sitemap_index.xml
+17-02-2026 14:44:04 | INFO     | modules.map.discoverer:_descubrir:1162 | DISCOVERER | Fase 0 completada: 6 URLs de nivel 1 descubiertas
+17-02-2026 14:44:04 | INFO     | modules.map.discoverer:_descubrir:1182 | DISCOVERER | Nivel 1: procesando 6 URLs
+17-02-2026 14:44:05 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: https://ginandjuice.shop/catalog/
+17-02-2026 14:44:05 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 14:44:05 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: https://ginandjuice.shop/catalog/
+17-02-2026 14:44:05 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [1/6] https://ginandjuice.shop/catalog/
+17-02-2026 14:44:07 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: https://ginandjuice.shop/blog/
+17-02-2026 14:44:07 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+17-02-2026 14:44:07 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: https://ginandjuice.shop/blog/
+17-02-2026 14:44:07 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [2/6] https://ginandjuice.shop/blog/
+17-02-2026 14:44:09 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: https://ginandjuice.shop/blog
+17-02-2026 14:44:09 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 14:44:09 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: https://ginandjuice.shop/blog
+17-02-2026 14:44:09 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [3/6] https://ginandjuice.shop/blog
+17-02-2026 14:44:10 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: https://ginandjuice.shop/catalog
+17-02-2026 14:44:10 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 14:44:10 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: https://ginandjuice.shop/catalog
+17-02-2026 14:44:10 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [4/6] https://ginandjuice.shop/catalog
+17-02-2026 14:44:12 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: https://ginandjuice.shop/my-account
+17-02-2026 14:44:12 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0
+17-02-2026 14:44:12 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: https://ginandjuice.shop/my-account
+17-02-2026 14:44:12 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [5/6] https://ginandjuice.shop/my-account
+17-02-2026 14:44:13 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: https://ginandjuice.shop/about
+17-02-2026 14:44:13 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0
+17-02-2026 14:44:13 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: https://ginandjuice.shop/about
+17-02-2026 14:44:13 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=1] [6/6] https://ginandjuice.shop/about
+17-02-2026 14:44:13 | INFO     | modules.map.discoverer:_descubrir:1400 | DISCOVERER | Nivel 1 completado: 6 páginas visitadas
+17-02-2026 14:44:13 | INFO     | modules.map.discoverer:_descubrir:1182 | DISCOVERER | Nivel 2: procesando 3 URLs
+17-02-2026 14:44:15 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: https://ginandjuice.shop/catalog/cart
+17-02-2026 14:44:15 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36
+17-02-2026 14:44:15 | DEBUG    | modules.map.discoverer:_realizar_peticion:456 | DISCOVERER | Código de estado 200: https://ginandjuice.shop/catalog/cart
+17-02-2026 14:44:15 | INFO     | modules.map.discoverer:_descubrir:1345 | DISCOVERER | [nivel=2] [1/3] https://ginandjuice.shop/catalog/cart
+17-02-2026 14:44:17 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: https://ginandjuice.shop/catalog/product
+17-02-2026 14:44:17 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 14:44:17 | DEBUG    | modules.map.discoverer:_realizar_peticion:473 | DISCOVERER | Error HTTP 400: https://ginandjuice.shop/catalog/product
+17-02-2026 14:44:18 | DEBUG    | modules.map.discoverer:_realizar_peticion:436 | DISCOVERER | Fetching: https://ginandjuice.shop/blog/post
+17-02-2026 14:44:18 | DEBUG    | modules.map.discoverer:_realizar_peticion:437 | DISCOVERER | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0
+17-02-2026 14:44:18 | DEBUG    | modules.map.discoverer:_realizar_peticion:473 | DISCOVERER | Error HTTP 400: https://ginandjuice.shop/blog/post
+17-02-2026 14:44:18 | INFO     | modules.map.discoverer:_descubrir:1400 | DISCOVERER | Nivel 2 completado: 3 páginas visitadas
+17-02-2026 14:44:18 | INFO     | modules.map.discoverer:_descubrir:1179 | DISCOVERER | Nivel 3: sin URLs pendientes, fin del descubrimiento
+17-02-2026 14:44:18 | SUCCESS  | modules.map.discoverer:_descubrir:1435 | DISCOVERER | Completado: 10 URLs descubiertas, profundidad máxima alcanzada: 3
+17-02-2026 14:44:18 | DEBUG    | modules.map.discoverer:_cerrar_sesion:261 | DISCOVERER | Sesión HTTP del discoverer cerrada
+17-02-2026 14:44:18 | DEBUG    | core.report_gen:añadir_hallazgo:254 | Hallazgo agregado: discoverer (map)
+17-02-2026 14:44:18 | INFO     | modules.map.discoverer:run:180 | DISCOVERER | Descubrimiento completado. URLs descubiertas: 10
+17-02-2026 14:44:18 | INFO     | __main__:ejecutar_modulos_mapeo:610 | DISCOVERER | Modulo discoverer completado
+17-02-2026 14:44:18 | INFO     | modules.map.visualizer:run:187 | [visualizer] Iniciando visualización de https://ginandjuice.shop/
+17-02-2026 14:44:18 | INFO     | modules.map.visualizer:run:209 | VISUALIZER | 10 URLs de discoverer encontradas
+17-02-2026 14:44:18 | INFO     | modules.map.visualizer:generate_from_urls:444 | Generando diagrama...
+17-02-2026 14:44:18 | INFO     | modules.map.visualizer:generate_from_urls:460 | Rutas únicas encontradas: 8
+17-02-2026 14:44:18 | INFO     | modules.map.visualizer:_llamar_llm:255 | Llamando a openrouter/qwen/qwen3.5-plus-02-15 para generar diagrama...
+17-02-2026 14:44:38 | DEBUG    | modules.map.visualizer:_llamar_llm:272 | Respuesta del LLM recibida
+17-02-2026 14:44:38 | SUCCESS  | modules.map.visualizer:generate_from_urls:496 | Diagrama generado: G:\Mi unidad\Soda\reports\ginandjuice.shop\web_map.drawio
+17-02-2026 14:44:38 | DEBUG    | core.report_gen:añadir_hallazgo:254 | Hallazgo agregado: visualizer (map)
+17-02-2026 14:44:38 | INFO     | __main__:ejecutar_modulos_mapeo:625 | VISUALIZER | Modulo visualizer completado
+17-02-2026 14:44:38 | INFO     | __main__:ejecutar_modulos_mapeo:627 | SODA       | Modulos de MAPEO finalizados
+17-02-2026 14:44:38 | INFO     | core.report_gen:exportar_json:372 | SODA       | Escaneo finalizado en 39.83s
+17-02-2026 14:44:38 | INFO     | core.report_gen:exportar_json:388 | SODA       | Reporte JSON exportado: reports\ginandjuice.shop\report.json
+17-02-2026 14:44:38 | DEBUG    | core.html_report:__init__:720 | GeneradorReporteHTML inicializado
+17-02-2026 14:44:38 | INFO     | core.html_report:generate:901 | SODA       | Reporte HTML generado: reports\ginandjuice.shop\report.html
+17-02-2026 14:44:38 | INFO     | __main__:main:1053 | SODA       | Reportes guardados en: reports\ginandjuice.shop
