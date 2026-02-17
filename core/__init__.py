@@ -241,7 +241,7 @@ FORMATO_LOG_ARCHIVO: str = (
 ###################### CONFIGURACIÓN DEL PROYECTO ######################
 
 #Nombre del proyecto
-NOMBRE_PROYECTO: str = "SODA - Herramienta de reconocimiento web"
+NOMBRE_PROYECTO: str = "SODA"
 
 #Versión actual del proyecto
 VERSION: str = "1.0.0"

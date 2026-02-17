@@ -269,13 +269,13 @@ def parsear_argumentos() -> argparse.Namespace:
     grupo_opciones_visualizer.add_argument(
         "-K", "--key",
         type=str,
-        help="API key para el servicio LLM (visualizer)",
+        help="API key para el visualizer",
     )
 
     grupo_opciones_visualizer.add_argument(
         "-M", "--model",
         type=str,
-        help="Modelo LLM a utilizar para el visualizer (ej: gpt-4o)",
+        help="Modelo LLM a utilizar para el visualizer",
     )
 
 
