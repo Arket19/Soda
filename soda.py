@@ -533,7 +533,7 @@ async def ejecutar_activos_individuales(
             modulo = WAFDetect()
             resultado = await modulo.run(url, sesion, reporte)
             if resultado:
-                logger.info("WAF        | Modulo waf_detector completado")
+                logger.info("WAF DETECT | Modulo waf_detector completado")
 
     logger.info("SODA       | Modulos activos individuales finalizados")
 

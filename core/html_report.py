@@ -379,7 +379,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             </div>
             {% endif %}
             
-            {% if finding.module == 'DNS_WHOIS' %}
+            {% if finding.module == 'dns_whois' %}
             <div class="card">
                 <h3>🌐 Reconocimiento DNS y WHOIS</h3>
                 
@@ -652,33 +652,6 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             </div>
             {% endif %}
 
-            {% if finding.module == 'fuzzer' %}
-            <div class="card">
-                <h3>📂 Resultados de Fuzzing</h3>
-                {% if finding.data.discovered_paths %}
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Path</th>
-                            <th>Status</th>
-                            <th>Content-Length</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for path in finding.data.discovered_paths %}
-                        <tr>
-                            <td><code>{{ path.path }}</code></td>
-                            <td>{{ path.status }}</td>
-                            <td>{{ path.content_length | default('-') }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                {% else %}
-                <div class="empty-state">No se encontraron paths adicionales</div>
-                {% endif %}
-            </div>
-            {% endif %}
 
             {% endfor %}
         </div>
@@ -923,6 +896,6 @@ class GeneradorReporteHTML:
         with open(archivo_salida, "w", encoding="utf-8") as archivo:
             archivo.write(contenido_html)
         
-        logger.info(f"Reporte HTML generado: {archivo_salida}")
+        logger.info(f"SODA       | Reporte HTML generado: {archivo_salida}")
         
         return str(archivo_salida.absolute())

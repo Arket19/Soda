@@ -153,7 +153,7 @@ class GeneradorReportes:
             "objetivo": url_objetivo,
         }
         
-        logger.info(f"GeneradorReportes inicializado para: {url_objetivo}")
+        logger.info(f"SODA       | GeneradorReportes inicializado para: {url_objetivo}")
 
 
 
@@ -195,7 +195,7 @@ class GeneradorReportes:
             hallazgos_existentes = datos_existentes.get("hallazgos", [])
             self.fusionar_hallazgos(hallazgos_existentes)
             
-            logger.info(f"Cargados {len(hallazgos_existentes)} hallazgos previos desde: {filepath}")
+            logger.info(f"SODA       | Cargados hallazgos previos desde: {filepath}")
             return True
         
         #Se manejan los errores de decodificación JSON
@@ -369,7 +369,7 @@ class GeneradorReportes:
         self.metadatos["scan_duration_seconds"] = duracion
         self.metadatos["scan_completed"] = self.timestamp_fin.isoformat()
         
-        logger.info(f"Escaneo finalizado en {duracion:.2f}s")
+        logger.info(f"SODA       | Escaneo finalizado en {duracion:.2f}s")
 
         
         #Se crea el directorio padre si no existe ya
@@ -385,5 +385,5 @@ class GeneradorReportes:
                 ensure_ascii=False
             )
         
-        logger.info(f"Reporte JSON exportado: {ruta_salida}")
+        logger.info(f"SODA       | Reporte JSON exportado: {ruta_salida}")
 

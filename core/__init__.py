@@ -148,6 +148,9 @@ FIRMAS_WAF: Dict[str, Dict[str, Any]] = {
         "headers": {"server": r"bigip"},
         "cookies": ["TS", "F5"],
     },
+    "PRISMA": {
+        "headers": {"x-prisma-event-id": r".*"}
+    },
 }
 
 #Payloads de prueba para detección activa de WAF
