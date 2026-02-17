@@ -441,7 +441,7 @@ class Visualizer:
             logger.warning("No se proporcionaron API Key y/o modelo. Generando archivo de rutas para uso manual con LLM.")
             return self._generar_archivo_manual(urls, output_file, base_url)
 
-        logger.info(f"VISUALIZER |Generando diagrama...")
+        logger.info(f"VISUALIZER | Generando diagrama...")
 
         #Se extraen paths únicos de las URLs
         rutas = set()

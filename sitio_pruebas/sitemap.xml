@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>http://localhost:8888/</loc></url>
+  <url><loc>http://localhost:8888/about/</loc></url>
+  <url><loc>http://localhost:8888/blog/</loc></url>
+  <url><loc>http://localhost:8888/products/</loc></url>
+  <url><loc>http://localhost:8888/docs/</loc></url>
+  <url><loc>http://localhost:8888/portal/</loc></url>
+  <url><loc>http://localhost:8888/docs/guides/advanced/</loc></url>
+  <url><loc>http://localhost:8888/hidden/backup/</loc></url>
+</urlset>

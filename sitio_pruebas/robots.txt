@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /hidden/
+Disallow: /api/v1/auth/
+
+Sitemap: http://localhost:8888/sitemap.xml
