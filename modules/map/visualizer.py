@@ -481,17 +481,20 @@ class Visualizer:
         #Se extrae el XML
         contenido_xml = self._extraer_xml(respuesta)
 
-        #Se valida que la respuesta contenga la estructura básica
-        if '<mxfile' not in contenido_xml:
-            logger.error("VISUALIZER | La respuesta del LLM no contiene un diagrama válido")
-            return ""
-
         #Se guarda el archivo
         ruta_salida = Path(output_file)
         ruta_salida.parent.mkdir(parents=True, exist_ok=True)
 
         with open(ruta_salida, 'w', encoding='utf-8') as archivo:
             archivo.write(contenido_xml)
+
+        #Se valida que la respuesta contenga la estructura básica
+        if '<mxfile' not in contenido_xml:
+            logger.error("VISUALIZER | La respuesta del LLM no contiene un diagrama válido")
+            #return ""
+            return str(ruta_salida.resolve())
+
+        
 
         logger.success(f"VISUALIZER | Diagrama generado: {ruta_salida.resolve()}")
         return str(ruta_salida.resolve())

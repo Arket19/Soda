@@ -146,8 +146,8 @@ class Crawler:
             Diccionario con los resultados del crawleo.
         """
 
-        logger.info(f"CRAWLER | Iniciando crawleo de {url}")
-        logger.info(f"CRAWLER | Profundidad máxima: {profundidad_maxima}, Límite URLs: {max_urls}")
+        logger.info(f"CRAWLER    | Iniciando crawleo de {url}")
+        logger.info(f"CRAWLER    | Profundidad máxima: {profundidad_maxima}, Límite URLs: {max_urls}")
 
         #Se reinicia el flag de cancelación para esta ejecución
         self._cancelado = False
@@ -169,7 +169,7 @@ class Crawler:
             )
         except (KeyboardInterrupt, asyncio.CancelledError):
             self._cancelado = True
-            logger.warning("CRAWLER | Cancelando crawleo...")
+            logger.warning("CRAWLER    | Cancelando crawleo...")
             await asyncio.sleep(1)
             raise
 
@@ -180,7 +180,7 @@ class Crawler:
             datos=resultados,
         )
 
-        logger.info(f"CRAWLER | Crawleo completado. URLs descubiertas: {len(resultados.get('urls', []))}")
+        logger.info(f"CRAWLER    | Crawleo completado. URLs descubiertas: {len(resultados.get('urls', []))}")
 
         return resultados
 
@@ -229,7 +229,7 @@ class Crawler:
             return resultados
 
         except Exception as error:
-            logger.error(f"CRAWLER | Error durante el crawleo: {error}")
+            logger.error(f"CRAWLER    | Error durante el crawleo: {error}")
             return {
                 "urls": [],
                 "urls_discovered": 0,
@@ -258,7 +258,7 @@ class Crawler:
         if self.sesion is not None:
             self.sesion.close()
             self.sesion = None
-            logger.debug("CRAWLER | Sesión HTTP del crawler cerrada")
+            logger.debug("CRAWLER    | Sesión HTTP del crawler cerrada")
 
 
 
@@ -432,8 +432,8 @@ class Crawler:
         headers['User-Agent'] = user_agent
         headers['Referer'] = referer
 
-        logger.debug(f"CRAWLER | Fetching: {url}")
-        logger.debug(f"CRAWLER | User-Agent: {user_agent}")
+        logger.debug(f"CRAWLER    | Fetching: {url}")
+        logger.debug(f"CRAWLER    | User-Agent: {user_agent}")
 
         respuesta = None
 
@@ -452,7 +452,7 @@ class Crawler:
                 #Se verifica que la respuesta sea exitosa
                 respuesta.raise_for_status()
 
-                logger.debug(f"CRAWLER | Código de estado {respuesta.status_code}: {url}")
+                logger.debug(f"CRAWLER    | Código de estado {respuesta.status_code}: {url}")
 
                 #Se actualiza el historial de referer
                 self.historial_referer.append(url)
@@ -469,18 +469,18 @@ class Crawler:
                     if hasattr(respuesta, 'status_code'):
                         status = respuesta.status_code
                         if status >= 400 and status < 500:
-                            logger.debug(f"CRAWLER | Error HTTP {status}: {url}")
+                            logger.debug(f"CRAWLER    | Error HTTP {status}: {url}")
                             return None
 
-                logger.warning(f"CRAWLER | Intento {intento + 1}/{self.max_reintentos} falló: {error}")
+                logger.warning(f"CRAWLER    | Intento {intento + 1}/{self.max_reintentos} falló: {error}")
 
                 #Si quedan reintentos se hace backof
                 if intento < self.max_reintentos - 1:
                     espera = BASE_BACKOFF * (2 ** intento)
-                    logger.debug(f"CRAWLER | Reintentando en {espera}s...")
+                    logger.debug(f"CRAWLER    | Reintentando en {espera}s...")
                     time.sleep(espera)
                 else:
-                    logger.error(f"CRAWLER | Falló después de {self.max_reintentos} intentos: {url}")
+                    logger.error(f"CRAWLER    | Falló después de {self.max_reintentos} intentos: {url}")
 
         return None
 
@@ -611,7 +611,7 @@ class Crawler:
                 return respuesta.text
             return None
         except Exception as error:
-            logger.debug(f"CRAWLER | Error obteniendo robots.txt: {error}")
+            logger.debug(f"CRAWLER    | Error obteniendo robots.txt: {error}")
             return None
 
 
@@ -666,7 +666,7 @@ class Crawler:
             Contenido del sitemap o None si falla.
         """
 
-        logger.debug(f"CRAWLER | Obteniendo sitemap: {sitemap_url}")
+        logger.debug(f"CRAWLER    | Obteniendo sitemap: {sitemap_url}")
 
         try:
             respuesta = self._realizar_peticion(sitemap_url)
@@ -674,7 +674,7 @@ class Crawler:
                 return respuesta.text
             return None
         except Exception as error:
-            logger.debug(f"CRAWLER | Error obteniendo sitemap: {error}")
+            logger.debug(f"CRAWLER    | Error obteniendo sitemap: {error}")
             return None
 
 
@@ -917,7 +917,7 @@ class Crawler:
         parametros_get: Dict[str, Set[tuple]] = defaultdict(set)
 
 
-        logger.info(f"CRAWLER | Iniciando crawleo desde: {url_inicio}")
+        logger.info(f"CRAWLER    | Iniciando crawleo desde: {url_inicio}")
         
         #Se obtienen el robots.txt y los sitemaps antes de empezar
         contenido_robots = self._obtener_robots_txt(url_inicio)
@@ -947,7 +947,7 @@ class Crawler:
                         if url_robot not in urls_descubiertas:
                             urls_descubiertas[url_robot] = 1
                             por_crawlear.append((url_robot, 1))
-            logger.info(f"CRAWLER | URLs de robots.txt añadidas a la cola de crawleo")
+            logger.info(f"CRAWLER    | URLs de robots.txt añadidas a la cola de crawleo")
 
         #Se meten URLs de sitemaps como rutas de profundidad 1 si el usuario lo solicita.
         if incluir_sitemaps and datos_sitemap and datos_sitemap["urls"]:
@@ -955,7 +955,7 @@ class Crawler:
                 if url_sitemap not in urls_descubiertas:
                     urls_descubiertas[url_sitemap] = 1
                     por_crawlear.append((url_sitemap, 1))
-            logger.info(f"CRAWLER | {len(datos_sitemap['urls'])} URLs de sitemaps añadidas a la cola de crawleo")
+            logger.info(f"CRAWLER    | {len(datos_sitemap['urls'])} URLs de sitemaps añadidas a la cola de crawleo")
 
         #Contadores y flags de estado
         paginas_exploradas = 0
@@ -966,17 +966,17 @@ class Crawler:
         while por_crawlear:
             if self._cancelado:
                 interrumpido = True
-                logger.warning("CRAWLER | Crawleo cancelado por el usuario (Ctrl+C)")
-                logger.warning(f"CRAWLER | Guardando {len(urls_descubiertas)} URLs descubiertas...")
+                logger.warning("CRAWLER    | Crawleo cancelado por el usuario (Ctrl+C)")
+                logger.warning(f"CRAWLER    | Guardando {len(urls_descubiertas)} URLs descubiertas...")
                 break
 
             #Se verifica si se ha alcanzado el numero maximo de urls
             if len(urls_descubiertas) >= max_urls:
-                logger.warning(f"CRAWLER | Límite de URLs alcanzado ({max_urls})")
-                logger.warning("CRAWLER | Recomendaciones:")
-                logger.warning("CRAWLER |   - Usa -E para excluir directorios grandes")
-                logger.warning("CRAWLER |   - Mapea secciones específicas")
-                logger.warning("CRAWLER |   - Reduce la profundidad con -D")
+                logger.warning(f"CRAWLER    | Límite de URLs alcanzado ({max_urls})")
+                logger.warning("CRAWLER    | Recomendaciones:")
+                logger.warning("CRAWLER    |   - Usa -E para excluir directorios grandes")
+                logger.warning("CRAWLER    |   - Mapea secciones específicas")
+                logger.warning("CRAWLER    |   - Reduce la profundidad con -D")
                 limite_alcanzado = True
                 break
 
@@ -1005,7 +1005,7 @@ class Crawler:
 
             #Se valida que la respuesta sea HTML antes de parsear
             if not self._es_respuesta_html(respuesta):
-                logger.debug(f"CRAWLER | Saltando (no HTML): {url}")
+                logger.debug(f"CRAWLER    | Saltando (no HTML): {url}")
                 continue
 
             #Se extraen los enlaces del HTML (incluyendo subdominios)
@@ -1060,7 +1060,7 @@ class Crawler:
             else:
                 tiempo_str = f"{segundos_estimados/60:.1f}m"
 
-            logger.info(f"CRAWLER | [{paginas_exploradas}] depth={profundidad}, pending={pendientes}, est={tiempo_str}")
+            logger.info(f"CRAWLER    | [{paginas_exploradas}] depth={profundidad}, pending={pendientes}, est={tiempo_str}")
 
         #Se ordenan las URLs por profundidad y alfabéticamente
         def criterio_orden(elemento):
@@ -1072,15 +1072,15 @@ class Crawler:
 
         #Se loguea el resumen del crawleo
         if interrumpido:
-            logger.warning(f"CRAWLER | INTERRUMPIDO: {len(urls_descubiertas)} URLs guardadas")
+            logger.warning(f"CRAWLER    | INTERRUMPIDO: {len(urls_descubiertas)} URLs guardadas")
         elif limite_alcanzado:
-            logger.warning(f"CRAWLER | PARCIAL: {len(urls_descubiertas)} URLs (límite alcanzado)")
+            logger.warning(f"CRAWLER    | PARCIAL: {len(urls_descubiertas)} URLs (límite alcanzado)")
         else:
-            logger.success(f"CRAWLER | Completado: {len(urls_descubiertas)} URLs descubiertas")
+            logger.success(f"CRAWLER    | Completado: {len(urls_descubiertas)} URLs descubiertas")
 
-        logger.info(f"CRAWLER | Páginas exploradas: {paginas_exploradas}")
+        logger.info(f"CRAWLER    | Páginas exploradas: {paginas_exploradas}")
         if subdominios_encontrados:
-            logger.info(f"CRAWLER | Subdominios detectados: {len(subdominios_encontrados)}")
+            logger.info(f"CRAWLER    | Subdominios detectados: {len(subdominios_encontrados)}")
 
         #Se construye el diccionario de resultados (serializable a JSON)
         lista_urls = []
