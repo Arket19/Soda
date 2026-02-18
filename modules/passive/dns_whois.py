@@ -320,6 +320,16 @@ class DNSRecon:
 
 
     def _formatear_fecha(self, fecha) -> str:
+        """
+        Qué hace:
+            Obtiene la primera fecha de una lista de fechas y la pasa a string
+        
+        Argumentos:
+            - fecha: lista de fechas.
+        
+        Retorna:
+            String con la primera fecha de la lista.
+        """
         if fecha is None:
             return None
         if isinstance(fecha, list):
@@ -339,16 +349,7 @@ class DNSRecon:
             - event_loop: El event loop de asyncio.
             - datos_whois: Respuesta cruda del servidor WHOIS.
             - resultado: Diccionario donde se almacenan los campos extraídos.
-            - resultado_limpio: Diccionario sin los campos con valor None.
-        
-        Información que se extrae:
-            - registrador: Empresa donde se registró el dominio (ej: GoDaddy, Namecheap)
-            - fecha_creacion: Fecha de creación del dominio
-            - fecha_expiracion: Fecha de expiración del dominio
-            - name_servers: Servidores DNS autoritativos del dominio
-            - estado: Estado del dominio (activo, pendiente de eliminación, etc.)
-            - org: Organización propietaria
-            - pais: País del propietario
+            - resultado_limpio: Diccionario sin los campos con valor None
         
         Retorna:
             Diccionario con información WHOIS relevante.
@@ -371,7 +372,7 @@ class DNSRecon:
             resultado["fecha_creacion"] = self._formatear_fecha(datos_whois.creation_date)
             resultado["fecha_expiracion"] = self._formatear_fecha(datos_whois.expiration_date)  
             resultado["name_servers"] = datos_whois.name_servers
-            resultado["estado"] = datos_whois
+            resultado["estado"] = datos_whois.status
             
             #Se usan getattr para org y country porque pueden no existir
             resultado["org"] = getattr(datos_whois, "org", None)
