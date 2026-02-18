@@ -319,6 +319,13 @@ class DNSRecon:
         return resultados
 
 
+    def _formatear_fecha(self, fecha) -> str:
+        if fecha is None:
+            return None
+        if isinstance(fecha, list):
+            fecha = fecha[0]
+        return str(fecha)
+
 
     async def _consultar_whois(self, dominio: str) -> Dict[str, Any]:
         """
@@ -361,10 +368,10 @@ class DNSRecon:
             #Se extraen los campos relevantes de la respuesta WHOIS
             resultado = {}
             resultado["registrador"] = datos_whois.registrar
-            resultado["fecha_creacion"] = str(datos_whois.creation_date)
-            resultado["fecha_expiracion"] = str(datos_whois.expiration_date)
+            resultado["fecha_creacion"] = self._formatear_fecha(datos_whois.creation_date)
+            resultado["fecha_expiracion"] = self._formatear_fecha(datos_whois.expiration_date)  
             resultado["name_servers"] = datos_whois.name_servers
-            resultado["estado"] = datos_whois.status
+            resultado["estado"] = datos_whois
             
             #Se usan getattr para org y country porque pueden no existir
             resultado["org"] = getattr(datos_whois, "org", None)
