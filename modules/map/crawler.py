@@ -1026,28 +1026,28 @@ class Crawler:
                 if dominio_enlace != dominio_base:
                     continue
 
+                #Se separa la URL sin query string para evitar duplicados por parámetros GET
+                enlace_parseado = urlparse(enlace)
+                enlace_sin_query = f"{enlace_parseado.scheme}://{enlace_parseado.netloc}{enlace_parseado.path}"
+
+                #Se extraen parámetros GET antes de comprobar duplicados
+                if enlace_parseado.query:
+                    path_url = enlace_parseado.path or "/"
+                    params = parse_qs(enlace_parseado.query)
+                    for nombre_param in params:
+                        valores = params[nombre_param]
+                        for valor in valores:
+                            #Se limita a 5 valores por parámetro
+                            if len(parametros_get[nombre_param]) < 5:
+                                parametros_get[nombre_param].add((valor, path_url))
+
                 #Se añade solo si es nuevo y no debe excluirse
-                ya_descubierto = enlace in urls_descubiertas
-                debe_excluir = self._debe_excluirse(enlace, rutas_excluidas, path_base, dominio_base)
+                ya_descubierto = enlace_sin_query in urls_descubiertas
+                debe_excluir = self._debe_excluirse(enlace_sin_query, rutas_excluidas, path_base, dominio_base)
 
                 if not ya_descubierto and not debe_excluir:
-                    urls_descubiertas[enlace] = profundidad + 1
-                    por_crawlear.append((enlace, profundidad + 1))
-
-                    #Se extraen parámetros GET de la URL
-                    enlace_parseado = urlparse(enlace)
-                    if enlace_parseado.query:
-                        path_url = enlace_parseado.path
-                        if not path_url:
-                            path_url = "/"
-
-                        params = parse_qs(enlace_parseado.query)
-                        for nombre_param in params:
-                            valores = params[nombre_param]
-                            for valor in valores:
-                                #Se limita a 5 valores por parámetro
-                                if len(parametros_get[nombre_param]) < 5:
-                                    parametros_get[nombre_param].add((valor, path_url))
+                    urls_descubiertas[enlace_sin_query] = profundidad + 1
+                    por_crawlear.append((enlace_sin_query, profundidad + 1))
 
 
             #Se muestra el progreso
