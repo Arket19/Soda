@@ -82,7 +82,7 @@ class sesionHttpAsincrona:
         
         #Se registra en el log la configuración con la que se inicializa
         logger.debug(
-            f"Sesion HTTP asincrona inicializada: timeout={timeout}s, "
+            f"SODA       | Sesion HTTP asincrona inicializada: timeout={timeout}s, "
             f"max_reintentos={max_reintentos}, verificar_ssl={verificar_ssl}, proxy={proxy}"
         )
 
@@ -129,7 +129,7 @@ class sesionHttpAsincrona:
             proxy=self._proxy,
         )
         
-        logger.debug(f"Cliente HTTP asíncrono creado")
+        logger.debug(f"SODA       | Cliente HTTP asíncrono creado")
         
         return self
 
@@ -153,7 +153,7 @@ class sesionHttpAsincrona:
         
         #Se cierra el cliente solo si existe
         if self.cliente:
-            logger.debug("Cliente HTTP asíncrono cerrado")
+            logger.debug("SODA       | Cliente HTTP asíncrono cerrado")
             await self.cliente.aclose()
 
 
@@ -362,24 +362,24 @@ class sesionHttpAsincrona:
                 respuesta = await self.cliente.request(metodo, url, **kwargs)
                 
                 #Se registra el código de estado de la respuesta en lo logs
-                logger.debug(f"{metodo} {url} -> {respuesta.status_code}")
+                logger.debug(f"SODA       | {metodo} {url} -> {respuesta.status_code}")
                 
                 return respuesta
 
             #Se manejan los errores de timeout   
             except httpx.TimeoutException as error:
                 excepcion = error
-                logger.warning(f"Timeout en {metodo} {url} (intento {intento}/{self.max_reintentos})")
+                logger.warning(f"SODA       | Timeout en {metodo} {url} (intento {intento}/{self.max_reintentos})")
             
             #Se manejan los errores de conexión
             except httpx.ConnectError as error:
                 excepcion = error
-                logger.warning(f"Error de conexión en {url} (intento {intento}/{self.max_reintentos})")
+                logger.warning(f"SODA       | Error de conexión en {url} (intento {intento}/{self.max_reintentos})")
 
             #Se manejan los errores inesperados
             except Exception as error:
                 excepcion = error
-                logger.error(f"Error inesperado en {metodo} {url}: {error}")
+                logger.error(f"SODA       | Error inesperado en {metodo} {url}: {error}")
             
             #Reintentos con backoff exponencial. Fórmula de backoff exponencial: Delay = Base × (Multiplier ^ AttemptNumber).
             if intento < self.max_reintentos:
@@ -387,6 +387,6 @@ class sesionHttpAsincrona:
                 await asyncio.sleep(espera)
         
         #Han fallado todos los reintentos
-        logger.error(f"Fallaron todos los reintentos para {metodo} {url}: {excepcion}")
+        logger.error(f"SODA       | Fallaron todos los reintentos para {metodo} {url}: {excepcion}")
         
         return None
