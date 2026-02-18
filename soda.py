@@ -1,7 +1,7 @@
 """
 Este módulo es el orquestador principal de la herramienta de reconocimiento web.
 
-Funcionalidades:
+Funcionalidades: 
     - Parsear argumentos de línea de comandos
     - Configurar el sistema de logging
     - Orquestar la ejecución de módulos pasivos, activos y de mapeo

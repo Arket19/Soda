@@ -1,6 +1,6 @@
 """
     Este módulo define todas las constantes y configuraciones globales que utilizan
-    los demás módulos del proyecto.
+    los demás módulos del proyecto. 
 """
 
 from typing import Dict, List, Any

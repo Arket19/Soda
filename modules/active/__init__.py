@@ -1,5 +1,5 @@
 """
-Inicialización del paquete de módulos activos.
+Inicialización del paquete de módulos activos. 
 
 Funcionalidades:
     - Expone las clases principales para su importación desde otros módulos.

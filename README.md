@@ -3,7 +3,7 @@
 ### Con pip
 
 ```bash
-#Clonar el repositorio
+#Clonar el repositorio 
 git clone https://github.com/Arket19/Soda.git
 cd Soda
 
