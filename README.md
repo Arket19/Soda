@@ -3,20 +3,26 @@
 ### Con pip
 
 ```bash
-# Clonar el repositorio
+#Clonar el repositorio
 git clone https://github.com/Arket19/Soda.git
 cd Soda
 
-# Crear entorno virtual
+#Crear entorno virtual
 python3 -m venv soda_venv
-source soda_venv/bin/activate  # Linux/macOS
-soda_venv\Scripts\activate     # Windows
+source soda_venv/bin/activate  #Linux/macOS
+soda_venv\Scripts\activate     #Windows
 
-# Instalar dependencias
+#Instalar dependencias
 pip install -r requirements.txt
+
+#Ejecutar un escaneo
+python3 soda.py -u <URL> [opciones]
+
+#Ejemplo de uso
+python3 soda.py -u ginandjuice.shop --passive --active --proxy http://127.0.0.1:8080 
 ```
 
-### Con Docker
+## Con Docker
 
 ```bash
 #Clonar el repositorio
@@ -33,18 +39,6 @@ docker run --rm --network host -e PYTHONUNBUFFERED=1 -v "$(pwd):/app" soda [opti
 docker run --rm --network host -e PYTHONUNBUFFERED=1 -v "$(pwd):/app" soda -u ginandjuice.shop --passive --active --proxy http://127.0.0.1:8080 
 
 ```
-
-
-
-## Uso
-
-```bash
-python3 soda.py -u <URL> [opciones]
-```
-
-
-
-
 
 ## Evidencias de ejecución
 
